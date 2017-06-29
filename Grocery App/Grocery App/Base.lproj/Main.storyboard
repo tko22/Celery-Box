@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hAj-TJ-Fzk">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Raleway-Regular.ttf">
+            <string>Raleway-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Grocery List-->
+        <scene sceneID="u99-Ja-ELo">
+            <objects>
+                <viewController id="RPC-Qm-dhx" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bvC-RI-pxQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="T5s-4l-sUE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="I3l-ci-V9T">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="bUS-Gf-FVz">
+                                <rect key="frame" x="100" y="318" width="118" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </slider>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Grocery List" image="second" id="TOI-qA-pSF"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x2r-P4-JzW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2429" y="440"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="PYm-GM-bmw">
+            <objects>
+                <viewController id="zPb-JV-c7X" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1qr-sL-cDC"/>
+                        <viewControllerLayoutGuide type="bottom" id="Jrz-ZD-tT6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9Hh-xL-7Nv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Settings" id="6PG-1b-dF8"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YtJ-bg-NGr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2431" y="1124"/>
+        </scene>
+        <!--Location View Controller-->
+        <scene sceneID="T1V-xG-yyF">
+            <objects>
+                <viewController storyboardIdentifier="locationVC" id="hAj-TJ-Fzk" customClass="LocationViewController" customModule="Grocery_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vN1-Rx-MSk"/>
+                        <viewControllerLayoutGuide type="bottom" id="uYV-yf-OfT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Blj-Dy-oeh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find stores near you!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pwE-Aj-jgN">
+                                <rect key="frame" x="73" y="108" width="230" height="29"/>
+                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmf-Y0-49L">
+                                <rect key="frame" x="178" y="230" width="19" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="0xJ-bp-nPi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ML-LP-I5r">
+                                <rect key="frame" x="95" y="169" width="184" height="34"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="Tlc-2I-Tdb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
+                                <state key="normal" title="Use Current Location">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="1lM-XN-aoi" kind="show" identifier="using_current_location" id="qep-8y-eRJ"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Zip Code" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jkE-zV-V6D">
+                                <rect key="frame" x="118" y="280" width="138" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="zip_code_primary_action:" destination="hAj-TJ-Fzk" eventType="primaryActionTriggered" id="EYs-lh-gtw"/>
+                                    <action selector="zip_code_textfield:" destination="hAj-TJ-Fzk" eventType="editingDidEnd" id="QCh-7s-Clx"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1ML-LP-I5r" firstAttribute="leading" secondItem="Blj-Dy-oeh" secondAttribute="leadingMargin" constant="79" id="9gW-9x-fHi"/>
+                            <constraint firstItem="pwE-Aj-jgN" firstAttribute="top" secondItem="vN1-Rx-MSk" secondAttribute="bottom" constant="88" id="9uV-sn-tV8"/>
+                            <constraint firstItem="jkE-zV-V6D" firstAttribute="top" secondItem="gmf-Y0-49L" secondAttribute="bottom" constant="30" id="LbK-fg-6BM"/>
+                            <constraint firstItem="gmf-Y0-49L" firstAttribute="centerX" secondItem="Blj-Dy-oeh" secondAttribute="centerX" id="RCQ-rR-qAt"/>
+                            <constraint firstItem="jkE-zV-V6D" firstAttribute="centerX" secondItem="Blj-Dy-oeh" secondAttribute="centerX" id="SbA-KE-i3f"/>
+                            <constraint firstItem="gmf-Y0-49L" firstAttribute="top" secondItem="1ML-LP-I5r" secondAttribute="bottom" constant="27" id="U0W-eC-pDB"/>
+                            <constraint firstItem="pwE-Aj-jgN" firstAttribute="centerX" secondItem="Blj-Dy-oeh" secondAttribute="centerX" id="YGP-mi-xFN"/>
+                            <constraint firstItem="1ML-LP-I5r" firstAttribute="centerX" secondItem="Blj-Dy-oeh" secondAttribute="centerX" id="ic1-b4-sQo"/>
+                            <constraint firstItem="1ML-LP-I5r" firstAttribute="top" secondItem="pwE-Aj-jgN" secondAttribute="bottom" constant="32" id="ui2-bH-wsl"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="current_location_btn" destination="1ML-LP-I5r" id="iZF-aE-AFu"/>
+                        <outlet property="zip_code" destination="jkE-zV-V6D" id="NAM-XD-kfT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lzc-MU-HZf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="624.79999999999995" y="115.59220389805098"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="66M-f5-grH">
+            <objects>
+                <tabBarController id="1lM-XN-aoi" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="aQ8-ru-JlD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="0yg-MX-TIB" kind="relationship" relationship="viewControllers" id="FFv-oE-s2N"/>
+                        <segue destination="RPC-Qm-dhx" kind="relationship" relationship="viewControllers" id="Fpq-dy-hnm"/>
+                        <segue destination="zPb-JV-c7X" kind="relationship" relationship="viewControllers" id="Iia-Cb-fNt"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JmI-l1-dTw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1474" y="111"/>
+        </scene>
+        <!--items-->
+        <scene sceneID="BQP-td-St6">
+            <objects>
+                <viewControllerPlaceholder storyboardName="items" id="0yg-MX-TIB" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="iDV-vI-cwK"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Igf-O4-4XB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2398" y="-160"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="second" width="30" height="30"/>
+    </resources>
+</document>
