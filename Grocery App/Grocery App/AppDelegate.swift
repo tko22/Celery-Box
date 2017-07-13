@@ -7,20 +7,70 @@
 //
 
 import UIKit
+import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    lazy var persistentContainer: NSPersistentContainer = {
+        
+        let container = NSPersistentContainer(name: "CoreData")
+        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            if let error = error {
+                
+                fatalError("Unresolved error, \((error as NSError).userInfo)")
+            }
+        })
+        return container
+    }()
+    
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        UILabel.appearance().font = UIFont(name: "Raleway",size: 16)
+        
         let storyboard = UIStoryboard(name:"Main",bundle:nil)
         let locationVC = storyboard.instantiateViewController(withIdentifier: "locationVC") as! LocationViewController
         self.window?.rootViewController = locationVC
+        
+        
+//        let managedObjectContext = persistentContainer.viewContext
+//        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ItemTypes")
+//        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+//        do {
+//            try managedObjectContext.execute(deleteRequest)
+//            try managedObjectContext.save()
+//        }catch{
+//            fatalError("yay")
+//        }
+//
+//        let list = NSEntityDescription.insertNewObject(forEntityName: "GroceryLists", into: managedObjectContext) as! GroceryLists
+//        let itemtype = NSEntityDescription.insertNewObject(forEntityName: "ItemTypes", into: managedObjectContext) as! ItemTypes
+//        let itemtype2 = NSEntityDescription.insertNewObject(forEntityName: "ItemTypes", into: managedObjectContext) as! ItemTypes
+        // Populate Record
+//        list.setValue("defaultList", forKey: "name")
+//        itemtype.setValue("milk", forKey: "name")
+//        itemtype.setValue(NSDate(), forKey: "creationDate")
+//        
+//        itemtype2.setValue("eggs", forKey: "name")
+//        itemtype2.setValue(NSDate(), forKey: "creationDate")
+//        let items = list.mutableSetValue(forKey: "items")
+//        items.add(itemtype)
+//        items.add(itemtype2)
+//        do {
+//            try managedObjectContext.save()
+//        } catch {
+//            fatalError("Failure to save context: \(error)")
+//        }
+
+        
+        
         return true
+        
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

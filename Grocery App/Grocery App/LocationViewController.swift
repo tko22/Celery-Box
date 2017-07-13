@@ -16,7 +16,6 @@ class LocationViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        print ("got it")
         
         
         current_location_btn.layer.cornerRadius = 4
@@ -30,18 +29,21 @@ class LocationViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print ("yay")
-        if (segue.identifier == "using_current_location"){
-            print ("current location")
+        if (segue.identifier == "current_location_segue"){
+            print ("current location segue")
             
         }
-        else if (segue.identifier == "using_zip_code"){
-            print ("zip code")
-            
+        else if (segue.identifier == "zip_code_segue"){
+            print ("zip code segue")
         }
     }
-    @IBAction func zip_code_primary_action(_ sender: Any) {
-        print (zip_code.text ?? "default")
+    
+    @IBAction func zip_code_primary_action(_ sender: UITextField) {
+        print("zip code", zip_code.text ?? "default")
+        
+        //put zip_code in storage
+        performSegue(withIdentifier: "zip_code_segue", sender: nil)
+
     }
     
     
