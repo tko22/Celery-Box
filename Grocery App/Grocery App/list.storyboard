@@ -69,7 +69,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="g60-FN-Bfu">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="57" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="g60-FN-Bfu">
                                 <rect key="frame" x="0.0" y="64" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" id="oHc-5A-9S3">
@@ -81,21 +81,28 @@
                                     </connections>
                                 </searchBar>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="GroceryItemCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="GroceryItemCell" id="7jN-zl-Efp" customClass="GroceryListTableViewCell" customModule="Grocery_App" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="GroceryItemCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="GroceryItemCell" rowHeight="57" id="7jN-zl-Efp" customClass="GroceryListTableViewCell" customModule="Grocery_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="72" width="375" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7jN-zl-Efp" id="2q9-Md-ZKb">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="56.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wy-8h-dcr">
-                                                    <rect key="frame" x="27" y="11" width="139" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wy-8h-dcr">
+                                                    <rect key="frame" x="24" y="11" width="343" height="38"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="139" id="FNO-ZL-lq2"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="3wy-8h-dcr" firstAttribute="top" secondItem="2q9-Md-ZKb" secondAttribute="topMargin" constant="3" id="I5d-ch-fs3"/>
+                                                <constraint firstItem="3wy-8h-dcr" firstAttribute="leading" secondItem="2q9-Md-ZKb" secondAttribute="leadingMargin" constant="16" id="MT2-C4-k8c"/>
+                                                <constraint firstItem="3wy-8h-dcr" firstAttribute="centerY" secondItem="2q9-Md-ZKb" secondAttribute="centerY" id="zLA-Wk-B20"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="itemNameLabel" destination="3wy-8h-dcr" id="YdP-tz-1Be"/>
@@ -107,18 +114,44 @@
                                     <outlet property="delegate" destination="Kyd-e8-gix" id="yPe-4P-qU7"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dSp-ZQ-xew">
+                                <rect key="frame" x="322" y="559" width="40" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iZW-vU-41v">
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" backgroundImage="cart"/>
+                                        <connections>
+                                            <segue destination="eXH-ph-AT2" kind="show" id="qK4-ji-coz"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="0TX-kb-YRY" firstAttribute="top" secondItem="g60-FN-Bfu" secondAttribute="bottom" constant="-113" id="4UO-Yc-St6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dSp-ZQ-xew" secondAttribute="trailing" constant="7" id="9YR-AE-R1a"/>
+                            <constraint firstItem="dSp-ZQ-xew" firstAttribute="top" secondItem="CMU-rK-XhE" secondAttribute="bottom" constant="495" id="Ame-3h-Dax"/>
                             <constraint firstAttribute="trailingMargin" secondItem="g60-FN-Bfu" secondAttribute="trailing" constant="-16" id="K0e-NF-oRk"/>
                             <constraint firstItem="g60-FN-Bfu" firstAttribute="top" secondItem="CMU-rK-XhE" secondAttribute="bottom" id="p0M-EB-PVP"/>
                             <constraint firstItem="g60-FN-Bfu" firstAttribute="leading" secondItem="Fl2-jG-E5H" secondAttribute="leadingMargin" constant="-16" id="qNM-Gy-syj"/>
+                            <constraint firstItem="dSp-ZQ-xew" firstAttribute="leading" secondItem="Fl2-jG-E5H" secondAttribute="leading" constant="322" id="rKJ-ZM-VVw"/>
+                            <constraint firstItem="0TX-kb-YRY" firstAttribute="top" secondItem="dSp-ZQ-xew" secondAttribute="bottom" constant="29" id="svk-Og-rEv"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Grocery List" id="XTi-cC-vRr"/>
+                    <navigationItem key="navigationItem" title="Grocery List" id="XTi-cC-vRr">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Brg-rp-hJH">
+                            <connections>
+                                <action selector="addListAction:" destination="Kyd-e8-gix" id="iGr-s6-yRM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="findStoreButton" destination="iZW-vU-41v" id="kfS-Le-qo1"/>
                         <outlet property="messageLabel" destination="AWX-aZ-ISx" id="4dY-c2-Hfv"/>
+                        <outlet property="searchBar" destination="oHc-5A-9S3" id="IJc-Ay-Qap"/>
                         <outlet property="searchDisplayController" destination="OsC-1c-WeW" id="QJN-fG-55I"/>
                         <outlet property="tableView" destination="g60-FN-Bfu" id="cEd-ki-XH7"/>
                     </connections>
@@ -136,11 +169,13 @@
             </objects>
             <point key="canvasLocation" x="2693.5999999999999" y="-259.52023988005999"/>
         </scene>
-        <!--Grocery List-->
+        <!--Navigation Controller-->
         <scene sceneID="e8W-DB-WBW">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="scb-Kv-W1s" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Grocery List" image="second" id="0NU-r7-10g"/>
+                    <tabBarItem key="tabBarItem" title="" image="list" id="0NU-r7-10g">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="KTv-g6-2D6">
@@ -161,6 +196,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="second" width="30" height="30"/>
+        <image name="cart" width="16" height="16"/>
+        <image name="list" width="16" height="16"/>
     </resources>
 </document>
