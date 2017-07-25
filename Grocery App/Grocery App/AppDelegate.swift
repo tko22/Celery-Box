@@ -9,8 +9,9 @@
 import UIKit
 import CoreData
 
+
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate{
 
     var window: UIWindow?
     
@@ -36,8 +37,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UILabel.appearance().font = UIFont(name: "Raleway",size: 16)
         managedObjectContext = persistentContainer.viewContext
         let storyboard = UIStoryboard(name:"Main",bundle:nil)
-        let locationVC = storyboard.instantiateViewController(withIdentifier: "locationVC") as! LocationViewController
-        self.window?.rootViewController = locationVC
+        
+        if (UserDefaults.standard.bool(forKey: "location_set")){
+            self.window?.rootViewController = storyboard.instantiateInitialViewController()
+        } else{
+            let locationVC = storyboard.instantiateViewController(withIdentifier: "locationVC") as! LocationViewController
+            self.window?.rootViewController = locationVC
+        }
+        
+        
+        
+        
         
         
        //        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ItemTypes")
@@ -101,6 +111,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("\(saveError), \(saveError.userInfo)")
         }
     }
+    
+    
 
 
 }

@@ -14,13 +14,18 @@
 		6A071E331F023EB2005D21FF /* Grocery_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A071E321F023EB2005D21FF /* Grocery_AppTests.swift */; };
 		6A071E3E1F023EB2005D21FF /* Grocery_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A071E3D1F023EB2005D21FF /* Grocery_AppUITests.swift */; };
 		6A071E971F031D93005D21FF /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A071E961F031D93005D21FF /* LocationViewController.swift */; };
+		6A07BE051F1D15BF00050E16 /* StoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A07BE041F1D15BF00050E16 /* StoreTableViewCell.swift */; };
 		6A088A4E1F0A3DF8008C8ADD /* UserStorePreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A088A4D1F0A3DF8008C8ADD /* UserStorePreferencesViewController.swift */; };
 		6A088A501F0A3E54008C8ADD /* changeLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A088A4F1F0A3E54008C8ADD /* changeLocationViewController.swift */; };
+		6A1F7BD21F1A756600577FCC /* items.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6A1F7BD11F1A756600577FCC /* items.txt */; };
+		6A2AB3D61F22A0A10091E953 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2AB3D51F22A0A10091E953 /* Reachability.swift */; };
 		6A4778271F148B860060EE9D /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6A4778251F148B860060EE9D /* CoreData.xcdatamodeld */; };
 		6A584CD51F13BA6500A4CD2F /* GroceryListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A584CD41F13BA6500A4CD2F /* GroceryListTableViewCell.swift */; };
 		6A584CD71F13BB6F00A4CD2F /* GroceryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A584CD61F13BB6F00A4CD2F /* GroceryListViewController.swift */; };
+		6A9A7B591F1E73CD00A8C982 /* ShopListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9A7B581F1E73CD00A8C982 /* ShopListViewController.swift */; };
+		6A9A7B5B1F1E74E400A8C982 /* OnSaleItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9A7B5A1F1E74E400A8C982 /* OnSaleItemTableViewCell.swift */; };
+		6A9A7B5D1F1FC23000A8C982 /* UserLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9A7B5C1F1FC23000A8C982 /* UserLocation.swift */; };
 		6AB1048B1F0628FD0070C55C /* list.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AB1048A1F0628FD0070C55C /* list.storyboard */; };
-		6AB104911F0663850070C55C /* FoodCategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB104901F0663850070C55C /* FoodCategoryTableViewController.swift */; };
 		6AB104971F068D950070C55C /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB104961F068D950070C55C /* StoreViewController.swift */; };
 		6AB24A611F09447500F76971 /* profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AB24A601F09447500F76971 /* profile.storyboard */; };
 		6AB24A631F094A8D00F76971 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB24A621F094A8D00F76971 /* ProfileTableViewController.swift */; };
@@ -30,6 +35,7 @@
 		6AB24A6E1F0956DD00F76971 /* Raleway-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6AB24A681F0956DD00F76971 /* Raleway-Light.ttf */; };
 		6AB24A6F1F0956DD00F76971 /* Raleway-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6AB24A691F0956DD00F76971 /* Raleway-Medium.ttf */; };
 		6AB24A701F0956DD00F76971 /* Raleway-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6AB24A6A1F0956DD00F76971 /* Raleway-Regular.ttf */; };
+		6AC298611F27FDEB00B4C758 /* RegularItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC298601F27FDEB00B4C758 /* RegularItemTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,13 +82,18 @@
 		6A071E3D1F023EB2005D21FF /* Grocery_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grocery_AppUITests.swift; sourceTree = "<group>"; };
 		6A071E3F1F023EB2005D21FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A071E961F031D93005D21FF /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		6A07BE041F1D15BF00050E16 /* StoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreTableViewCell.swift; sourceTree = "<group>"; };
 		6A088A4D1F0A3DF8008C8ADD /* UserStorePreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserStorePreferencesViewController.swift; sourceTree = "<group>"; };
 		6A088A4F1F0A3E54008C8ADD /* changeLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = changeLocationViewController.swift; sourceTree = "<group>"; };
+		6A1F7BD11F1A756600577FCC /* items.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = items.txt; sourceTree = "<group>"; };
+		6A2AB3D51F22A0A10091E953 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		6A4778261F148B860060EE9D /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 		6A584CD41F13BA6500A4CD2F /* GroceryListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryListTableViewCell.swift; sourceTree = "<group>"; };
 		6A584CD61F13BB6F00A4CD2F /* GroceryListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryListViewController.swift; sourceTree = "<group>"; };
+		6A9A7B581F1E73CD00A8C982 /* ShopListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopListViewController.swift; sourceTree = "<group>"; };
+		6A9A7B5A1F1E74E400A8C982 /* OnSaleItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnSaleItemTableViewCell.swift; sourceTree = "<group>"; };
+		6A9A7B5C1F1FC23000A8C982 /* UserLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = UserLocation.swift; sourceTree = "<group>"; };
 		6AB1048A1F0628FD0070C55C /* list.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = list.storyboard; sourceTree = "<group>"; };
-		6AB104901F0663850070C55C /* FoodCategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodCategoryTableViewController.swift; sourceTree = "<group>"; };
 		6AB104961F068D950070C55C /* StoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
 		6AB24A601F09447500F76971 /* profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = profile.storyboard; sourceTree = "<group>"; };
 		6AB24A621F094A8D00F76971 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +103,7 @@
 		6AB24A681F0956DD00F76971 /* Raleway-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Light.ttf"; sourceTree = "<group>"; };
 		6AB24A691F0956DD00F76971 /* Raleway-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Medium.ttf"; sourceTree = "<group>"; };
 		6AB24A6A1F0956DD00F76971 /* Raleway-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Regular.ttf"; sourceTree = "<group>"; };
+		6AC298601F27FDEB00B4C758 /* RegularItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegularItemTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +164,8 @@
 				6A071E241F023EB1005D21FF /* Assets.xcassets */,
 				6A071E261F023EB1005D21FF /* LaunchScreen.storyboard */,
 				6A071E291F023EB1005D21FF /* Info.plist */,
+				6A9A7B5C1F1FC23000A8C982 /* UserLocation.swift */,
+				6A2AB3D51F22A0A10091E953 /* Reachability.swift */,
 			);
 			path = "Grocery App";
 			sourceTree = "<group>";
@@ -177,6 +191,7 @@
 		6A071E9A1F034CE6005D21FF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6A1F7BD11F1A756600577FCC /* items.txt */,
 				6AB24A651F0956DD00F76971 /* Raleway-Black.ttf */,
 				6AB24A661F0956DD00F76971 /* Raleway-Bold.ttf */,
 				6AB24A671F0956DD00F76971 /* Raleway-Italic.ttf */,
@@ -191,10 +206,13 @@
 			isa = PBXGroup;
 			children = (
 				6AB1048A1F0628FD0070C55C /* list.storyboard */,
-				6AB104901F0663850070C55C /* FoodCategoryTableViewController.swift */,
 				6AB104961F068D950070C55C /* StoreViewController.swift */,
 				6A584CD41F13BA6500A4CD2F /* GroceryListTableViewCell.swift */,
 				6A584CD61F13BB6F00A4CD2F /* GroceryListViewController.swift */,
+				6A07BE041F1D15BF00050E16 /* StoreTableViewCell.swift */,
+				6A9A7B581F1E73CD00A8C982 /* ShopListViewController.swift */,
+				6A9A7B5A1F1E74E400A8C982 /* OnSaleItemTableViewCell.swift */,
+				6AC298601F27FDEB00B4C758 /* RegularItemTableViewCell.swift */,
 			);
 			name = "Grocery List";
 			sourceTree = "<group>";
@@ -324,6 +342,7 @@
 				6AB24A6D1F0956DD00F76971 /* Raleway-Italic.ttf in Resources */,
 				6AB1048B1F0628FD0070C55C /* list.storyboard in Resources */,
 				6A071E281F023EB1005D21FF /* LaunchScreen.storyboard in Resources */,
+				6A1F7BD21F1A756600577FCC /* items.txt in Resources */,
 				6A071E251F023EB1005D21FF /* Assets.xcassets in Resources */,
 				6AB24A701F0956DD00F76971 /* Raleway-Regular.ttf in Resources */,
 				6A071E231F023EB1005D21FF /* Main.storyboard in Resources */,
@@ -354,16 +373,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A2AB3D61F22A0A10091E953 /* Reachability.swift in Sources */,
 				6A584CD51F13BA6500A4CD2F /* GroceryListTableViewCell.swift in Sources */,
 				6A088A4E1F0A3DF8008C8ADD /* UserStorePreferencesViewController.swift in Sources */,
 				6AB24A631F094A8D00F76971 /* ProfileTableViewController.swift in Sources */,
 				6AB104971F068D950070C55C /* StoreViewController.swift in Sources */,
-				6AB104911F0663850070C55C /* FoodCategoryTableViewController.swift in Sources */,
 				6A584CD71F13BB6F00A4CD2F /* GroceryListViewController.swift in Sources */,
 				6A4778271F148B860060EE9D /* CoreData.xcdatamodeld in Sources */,
+				6AC298611F27FDEB00B4C758 /* RegularItemTableViewCell.swift in Sources */,
 				6A071E971F031D93005D21FF /* LocationViewController.swift in Sources */,
+				6A9A7B5B1F1E74E400A8C982 /* OnSaleItemTableViewCell.swift in Sources */,
+				6A9A7B5D1F1FC23000A8C982 /* UserLocation.swift in Sources */,
 				6A088A501F0A3E54008C8ADD /* changeLocationViewController.swift in Sources */,
+				6A9A7B591F1E73CD00A8C982 /* ShopListViewController.swift in Sources */,
 				6A071E1C1F023EB1005D21FF /* AppDelegate.swift in Sources */,
+				6A07BE051F1D15BF00050E16 /* StoreTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,21 +1,18 @@
 //
-//  GroceryListTableViewCell.swift
+//  StoreTableViewCell.swift
 //  Grocery App
 //
-//  Created by Timothy Ko on 7/10/17.
+//  Created by Timothy Ko on 7/17/17.
 //  Copyright © 2017 tko. All rights reserved.
 //
 
 import UIKit
 
-class GroceryListTableViewCell: UITableViewCell {
+class StoreTableViewCell: UITableViewCell {
+
+    static let reuseIdentifier = "StoreInfoCell"
     
-    // properties
-    static let reuseIdentifier = "GroceryItemCell"
-    
-    // outlets
-    @IBOutlet weak var itemNameLabel: UILabel!
-    
+    @IBOutlet weak var storeInfoLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

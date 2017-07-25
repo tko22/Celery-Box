@@ -1,21 +1,16 @@
 //
-//  GroceryListTableViewCell.swift
+//  RegularItemTableViewCell.swift
 //  Grocery App
 //
-//  Created by Timothy Ko on 7/10/17.
+//  Created by Timothy Ko on 7/25/17.
 //  Copyright © 2017 tko. All rights reserved.
 //
 
 import UIKit
 
-class GroceryListTableViewCell: UITableViewCell {
-    
-    // properties
-    static let reuseIdentifier = "GroceryItemCell"
-    
-    // outlets
-    @IBOutlet weak var itemNameLabel: UILabel!
-    
+class RegularItemTableViewCell: UITableViewCell {
+
+    static let reuseIdentifier = "RegularItemCell"
     
     override func awakeFromNib() {
         super.awakeFromNib()

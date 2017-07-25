@@ -9,13 +9,28 @@
 import UIKit
 
 class changeLocationViewController: UIViewController {
-    @IBAction func location_unwindToProfile(_ sender: UIBarButtonItem) {
-        self.dismiss(animated:true, completion: nil)
+    
+    @IBOutlet weak var zip_code_text: UITextField!
+    
+    @IBAction func changeToCurrentLocation(_ sender: UIButton) {
+        let userDefault = UserDefaults.standard
+        
+        userDefault.set("current_location",forKey:"location_type")
+        userDefault.synchronize()
+        _ = navigationController?.popViewController(animated: true)
     }
-
+    
+    @IBAction func changeToZipCode(_ sender: UITextField) {
+        let userDefault = UserDefaults.standard
+        userDefault.set(zip_code_text.text, forKey: "zip_code")
+        userDefault.set("zip_code",forKey:"location_type")
+        userDefault.synchronize()
+        _ = navigationController?.popViewController(animated: true)
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
 

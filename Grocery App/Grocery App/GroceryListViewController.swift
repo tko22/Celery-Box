@@ -20,7 +20,7 @@ class GroceryListViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var tableView: UITableView!
     
     //LATER: get from text file
-    var list_items = ["Asparagus","Broccoli","Carrots","Cauliflower","Celery","Corn","Cucumbers","Lettuce ","Mushrooms","Onions","Peppers","Potatoes","Spinach","Squash","Zucchini","Tomatoes","Apples","Avocados","Bananas","Berries","Cherries","Grapefruit","Grapes","Kiwis","Lemons ","Limes","Melon","Nectarines","Oranges","Peaches","Pears","Plums","Bagels","Chip dip","Eggs","Fake eggs","English muffins","Fruit juice","Hummus","Ready-bake breads","Tofu","Tortillas","Breakfasts","Burritos","Fish sticks","Fries","Tater tots","Ice cream ","Sorbet","Juice concentrate","Pizza","Pizza Rolls","Popsicles","TV dinners","Vegetables","BBQ sauce","Gravy","Honey","Hot sauce","Jam ","Jelly ","Preserves","Ketchup","Mustard","Mayonnaise","Pasta sauce","Relish","Salad dressing","Salsa","Soy sauce","Steak sauce","Syrup","Worcestershire sauce","Bouillon cubes","Cereal","Coffee","Coffee filters","Instant potatoes","Lemon juice","Lime juice","Mac & cheese","Olive oil","Packaged meals","Pancake mix","Waffle mix","Pasta","Peanut butter","Pickles","Rice","Tea","Vegetable oil","Vinegar","Applesauce","Baked beans","Broth","Fruit","Olives","Tinned meats","Tuna","Chicken","Soup","Chili","Tomatoes","Veggies","Basil","Black pepper","Cilantro","Cinnamon","Garlic","Ginger","Mint","Oregano","Paprika","Parsley","Red pepper","Salt","Vanilla extract","Butter","Margarine","Cottage cheese","Half & half","Milk","Sour cream","Whipped cream","Yogurt","Bleu cheese","Cheddar","Cottage cheese","Cream cheese","Feta","Goat cheese","Mozzarella","Parmesan","Provolone","Ricotta","Sandwich slices","Swiss","Bacon ","Sausage","Beef","Steak ","Chicken","Ground beef ","Turkey","Ham","Pork","Hot dogs","Lunchmeat","Turkey","Catfish","Crab","Lobster","Mussels","Oysters","Salmon","Shrimp","Tilapia","Tuna","Beer","Club soda ","Champagne","Gin","Juice","Mixers","Red wine","White wine","Rum","Sake","Soda pop","Sports drink","Whiskey","Vodka","Bagels","Croissants","Buns ","Cake","Cookies","Donuts ","Pastries","Fresh bread","Pie","Pita bread","Sliced bread","Baking powder","Baking Soda","Bread crumbs","Cake mix","Brownie mix","Cake icing","Cake Decorations","Chocolate chips/Cocoa ","Flour","Shortening","Sugar","Sugar substitute","Yeast","Candy ","Gum","Cookies","Crackers","Dried fruit","Granola bars ","Granola mix","Nuts","Seeds","Oatmeal","Popcorn","Potato Chips","Corn chips","Pretzels","Burger night","Chili night","Pizza night","Spaghetti night","Taco night","Take-out deli food","Baby food","Diapers","Formula","Lotion","Baby wash","Wipes","Cat food / Treats","Cat litter","Dog food / Treats","Flea treatment","Pet shampoo","Deodorant","Bath soap / Hand soap","Condoms / Other b.c.","Cosmetics","Cotton swabs / Balls","Facial cleanser","Facial tissue","Feminine products","Floss","Hair gel ","Hair spray","Lip balm","Moisturizing lotion","Mouthwash","Razors ","Shaving cream","Shampoo ","Conditioner","Sunblock","Toilet paper","Toothpaste","Vitamins ","Supplements","Allergy","Antibiotic","Antidiarrheal","Aspirin","Antacid","Band-aids / Medical","Cold / Flu / Sinus","Pain reliever","Prescription pick-up","Aluminum foil","Napkins","Non-stick spray","Paper towels","Plastic wrap","Sandwich / Freezer bags","Wax paper","Air freshener","Bathroom cleaner","Bleach ","Detergent","Dish / Dishwasher soap","Garbage bags","Glass cleaner","Mop head ","Vacuum bags","Sponges","Notepad ","Envelopes","Glue ","Tape","Printer paper","Pens ","Pencils","Postage stamps","Arsenic","Asbestos","Cigarettes","Radionuclides","Vinyl chloride"]
+    var list_items = [Int:String]()
     
     var searchActive = false
     var filteredArray = [String]()
@@ -54,41 +54,25 @@ class GroceryListViewController: UIViewController, UITableViewDataSource, UITabl
         } catch {
             fatalError("Failed to initialize FetchedResultsController: \(error)")
             }
-
+        list_items = fillItemListArry(fileName: "items")!
         
-        print("fetched")
         self.tableView.tableFooterView = UIView()
         configureSearchController()
+        tableView.delegate = self
+        searchBar.delegate = self
+        tableView.contentInset = UIEdgeInsetsMake(0, 0, 120, 0);
         
-//        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ItemTypes")
-//        fetchRequest.predicate = NSPredicate(format:"lists.name contains [cd] %@", "defaultList")
-//        
-//        do {
-//            let results = try managedObjectContext.fetch(fetchRequest) as! [ItemTypes]
-//            print(results[0].name ?? "default string")
-//        }catch{
-//            fatalError("yay")
-//        }
-
-//        do {
-//            let results = try managedObjectContext.fetch(fetchRequest) as! [GroceryLists]
-//            print(results.count)
-//            if let flist = results.first {
-//                print(flist.name ?? "default")
-//                for x in flist.items?.allObjects as! [ItemTypes]{
-//                    print(x.name ?? "default item")
-//                    
-//                }
-//            }
-//            
-//
-//        } catch {
-//            fatalError("Failed to fetch employees: \(error)")
-//        }
-    
-
-        
-
+        if Reachability.isConnectedToNetwork(){
+            print("Internet Connection OK")
+        }
+        else{
+            let alert = UIAlertController(title: "Connection Error", message: "Oops! Check if your internet connection is working." , preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { action in
+                self.dismiss(animated: true,completion:nil)
+            }))
+            self.present(alert, animated: true, completion: nil)
+            
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -148,13 +132,31 @@ class GroceryListViewController: UIViewController, UITableViewDataSource, UITabl
         txtSearchField?.backgroundColor = lightlightGray
         txtSearchField?.textAlignment = .left
         txtSearchField?.rightViewMode = .always
+        txtSearchField?.frame.size.height = 35
+        txtSearchField?.font = UIFont(name: "Raleway",size: 14)
+    }
+    func fillItemListArry(fileName: String) -> [Int:String]? {
+        let path = Bundle.main.path(forResource: fileName, ofType: "txt")
+        var return_array = [Int:String]()
+        do {
+            let text = try String(contentsOfFile: path!, encoding: String.Encoding.utf8)
+            let itemsarray = text.components(separatedBy: ",")
+            for item in itemsarray{
+                let arr = item.components(separatedBy: "^")
+                return_array[Int(arr.first!)!]=arr[1].replacingOccurrences(of: "_", with: " ")
+            }
+            return(return_array)
+        } catch _ as NSError {
+            return nil
+        }
+
     }
     
     func updateSearchResults(for searchController: UISearchController) {
         let searchString = searchController.searchBar.text
         
         // Filter the data array and get only those countries that match the search text.
-        filteredArray = list_items.filter({ (item) -> Bool in
+        filteredArray = list_items.values.filter({ (item) -> Bool in
             let itemText: NSString = item as NSString
             
             return (itemText.range(of: searchString!, options: NSString.CompareOptions.caseInsensitive).location) != NSNotFound
@@ -169,9 +171,12 @@ class GroceryListViewController: UIViewController, UITableViewDataSource, UITabl
         self.tableView.reloadData()
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = nil
+        searchController.searchBar.resignFirstResponder()
         searchActive = false
-        self.tableView.reloadData()
+        tableView.reloadData()
     }
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if !searchActive {
             searchActive = true
@@ -179,10 +184,11 @@ class GroceryListViewController: UIViewController, UITableViewDataSource, UITabl
         }
         searchController.searchBar.resignFirstResponder()
     }
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar)
-    {
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchActive = true;
+        self.tableView.reloadData()
     }
+    
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return fetchedResultsController.sections!.count
@@ -196,7 +202,6 @@ class GroceryListViewController: UIViewController, UITableViewDataSource, UITabl
                 fatalError("No sections in fetchedResultsController")
             }
             let sectionInfo = sections[section]
-            print("num of row",sectionInfo.numberOfObjects)
             return sectionInfo.numberOfObjects
         }
         
@@ -213,31 +218,31 @@ class GroceryListViewController: UIViewController, UITableViewDataSource, UITabl
         else {
             self.tableView.allowsSelection = false
             let item = fetchedResultsController.object(at: indexPath)
-            print(item.name ?? "default")
             cell.itemNameLabel?.text = item.name
         }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if searchActive{
+        if searchActive {
             let item_name = filteredArray[indexPath.row]
             searchController.isActive = false
             do {
                 let itemtype = NSEntityDescription.insertNewObject(forEntityName: "ItemTypes", into: managedObjectContext) as! ItemTypes
                 itemtype.name = item_name
                 itemtype.creationDate = NSDate()
+                if let key = self.list_items.someKey(forValue: item_name) {
+                    itemtype.id = Int64(key)
+                    print("saved item",key)
+                }
                 //TODO: add list relationship
                 searchActive = false
                 self.tableView.reloadData()
                 
-                print(searchActive)
                 try managedObjectContext.save()
-                print("saved item")
             } catch {
                 print("cant save item")
             }
-            
         }
         else{
             print("row selected when search isn't activated")
@@ -293,4 +298,9 @@ extension GroceryListViewController: NSFetchedResultsControllerDelegate {
         tableView.endUpdates()
     }
     
+}
+extension Dictionary where Value: Equatable {
+    func someKey(forValue val: Value) -> Key? {
+        return first(where: { $1 == val })?.0
+    }
 }
