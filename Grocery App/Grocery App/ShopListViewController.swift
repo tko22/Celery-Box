@@ -13,10 +13,11 @@ class ShopListViewController: UIViewController, UITableViewDataSource, UITableVi
     
     @IBOutlet weak var tableView: UITableView!
     
-    var listOfItems = [Int]()
+    var regularitem_set = [Int]() //Regular Priced items
     var onsaleitem_set = [[String:Any]]()
     var list_items = [Int:String]() // dictionary of item names with id as key
     let sectionNames = ["On Sale Items","Others"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.allowsMultipleSelection = true
@@ -29,11 +30,12 @@ class ShopListViewController: UIViewController, UITableViewDataSource, UITableVi
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        // Deletes items that are on sale in the regular priced items list
         for x in self.onsaleitem_set {
-            self.listOfItems = self.listOfItems.filter {
+            self.regularitem_set = self.regularitem_set.filter {
                 $0 != x["item_type"] as! Int
             }
         }
@@ -43,7 +45,9 @@ class ShopListViewController: UIViewController, UITableViewDataSource, UITableVi
         print(self.onsaleitem_set)
     }
     
-    
+    /*
+        fills itemlistarry with items from item.txt - key: item id, value: item name
+    */
     func fillItemListArry(fileName: String) -> [Int:String]? {
         let path = Bundle.main.path(forResource: fileName, ofType: "txt")
         var return_array = [Int:String]()
@@ -71,6 +75,8 @@ class ShopListViewController: UIViewController, UITableViewDataSource, UITableVi
      
     */
     
+    // MARK: TableView Stuff
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -80,7 +86,7 @@ class ShopListViewController: UIViewController, UITableViewDataSource, UITableVi
         case 0:
             return onsaleitem_set.count
         case 1:
-            return listOfItems.count
+            return regularitem_set.count
         default:
             return 1
         }
@@ -112,7 +118,7 @@ class ShopListViewController: UIViewController, UITableViewDataSource, UITableVi
             guard let cell = tableView.dequeueReusableCell(withIdentifier: RegularItemTableViewCell.reuseIdentifier, for: indexPath) as? RegularItemTableViewCell else {
                 fatalError("Unexpected Index Path")
             }
-            cell.nameLabel?.text = list_items[self.listOfItems[indexPath.row]]
+            cell.nameLabel?.text = list_items[self.regularitem_set[indexPath.row]]
             return cell
         }
         else{
@@ -136,7 +142,11 @@ class ShopListViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sectionNames[section]
+        if onsaleitem_set.count == 0, section == 0{
+            return nil
+        } else {
+            return sectionNames[section]
+        }
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {

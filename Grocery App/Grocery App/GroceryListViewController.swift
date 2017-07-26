@@ -19,14 +19,18 @@ class GroceryListViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
-    //LATER: get from text file
+    //list of items - key:item id, value:item name
     var list_items = [Int:String]()
     
+    // keeps track of whether search is activated
     var searchActive = false
+    
+    //Search Filter array
     var filteredArray = [String]()
     var searchController: UISearchController!
     let lightlightGray = UIColor(red:0.93, green:0.93, blue:0.93, alpha:1.0)
 
+    //initalize fetchedResultsController
     fileprivate lazy var fetchedResultsController: NSFetchedResultsController<ItemTypes> = {
         // Initialize Fetch Request
         let fetchRequest: NSFetchRequest<ItemTypes> = ItemTypes.fetchRequest()
@@ -53,7 +57,8 @@ class GroceryListViewController: UIViewController, UITableViewDataSource, UITabl
             try fetchedResultsController.performFetch()
         } catch {
             fatalError("Failed to initialize FetchedResultsController: \(error)")
-            }
+        }
+        
         list_items = fillItemListArry(fileName: "items")!
         
         self.tableView.tableFooterView = UIView()
@@ -62,6 +67,7 @@ class GroceryListViewController: UIViewController, UITableViewDataSource, UITabl
         searchBar.delegate = self
         tableView.contentInset = UIEdgeInsetsMake(0, 0, 120, 0);
         
+        //Checks if user is connected to internet
         if Reachability.isConnectedToNetwork(){
             print("Internet Connection OK")
         }
@@ -71,7 +77,6 @@ class GroceryListViewController: UIViewController, UITableViewDataSource, UITabl
                 self.dismiss(animated: true,completion:nil)
             }))
             self.present(alert, animated: true, completion: nil)
-            
         }
     }
 
@@ -80,7 +85,7 @@ class GroceryListViewController: UIViewController, UITableViewDataSource, UITabl
         // Dispose of any resources that can be recreated.
     }
     
-    
+    //When the + right bar button is clicked - deletes all items in list
     @IBAction func addListAction(_ sender: Any) {
         let items = fetchedResultsController.fetchedObjects
         do {
@@ -89,7 +94,6 @@ class GroceryListViewController: UIViewController, UITableViewDataSource, UITabl
                 try managedObjectContext.save()
                 searchActive = false
                 self.tableView.reloadData()
-                
             }
         } catch{
             print("cant delete")
@@ -98,20 +102,32 @@ class GroceryListViewController: UIViewController, UITableViewDataSource, UITabl
         
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     func editButton(){
         findStoreButton.frame = CGRect(x: 160, y: 100, width: 50, height: 50)
         findStoreButton.setImage(UIImage(named:"cart"), for: .normal)
     }
     
+    //Accesses file and parses information to [Int:String] - see list_items for more information on properties
+    func fillItemListArry(fileName: String) -> [Int:String]? {
+        let path = Bundle.main.path(forResource: fileName, ofType: "txt")
+        var return_array = [Int:String]()
+        do {
+            let text = try String(contentsOfFile: path!, encoding: String.Encoding.utf8)
+            let itemsarray = text.components(separatedBy: ",")
+            for item in itemsarray{
+                let arr = item.components(separatedBy: "^")
+                return_array[Int(arr.first!)!]=arr[1].replacingOccurrences(of: "_", with: " ")
+            }
+            return(return_array)
+        } catch _ as NSError {
+            return nil
+        }
+        
+    }
+    
+    // MARK: - SearchBar stuff
+    
+    //Configure SearchController look and actions
     func configureSearchController() {
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
@@ -132,25 +148,11 @@ class GroceryListViewController: UIViewController, UITableViewDataSource, UITabl
         txtSearchField?.backgroundColor = lightlightGray
         txtSearchField?.textAlignment = .left
         txtSearchField?.rightViewMode = .always
-        txtSearchField?.frame.size.height = 35
+        txtSearchField?.frame.size.height = 41
         txtSearchField?.font = UIFont(name: "Raleway",size: 14)
     }
-    func fillItemListArry(fileName: String) -> [Int:String]? {
-        let path = Bundle.main.path(forResource: fileName, ofType: "txt")
-        var return_array = [Int:String]()
-        do {
-            let text = try String(contentsOfFile: path!, encoding: String.Encoding.utf8)
-            let itemsarray = text.components(separatedBy: ",")
-            for item in itemsarray{
-                let arr = item.components(separatedBy: "^")
-                return_array[Int(arr.first!)!]=arr[1].replacingOccurrences(of: "_", with: " ")
-            }
-            return(return_array)
-        } catch _ as NSError {
-            return nil
-        }
-
-    }
+    
+    // SearchController Updating
     
     func updateSearchResults(for searchController: UISearchController) {
         let searchString = searchController.searchBar.text
@@ -165,7 +167,6 @@ class GroceryListViewController: UIViewController, UITableViewDataSource, UITabl
         // Reload the tableview.
         self.tableView.reloadData()
     }
-    
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchActive = true
         self.tableView.reloadData()
@@ -176,7 +177,6 @@ class GroceryListViewController: UIViewController, UITableViewDataSource, UITabl
         searchActive = false
         tableView.reloadData()
     }
-    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if !searchActive {
             searchActive = true
@@ -189,7 +189,8 @@ class GroceryListViewController: UIViewController, UITableViewDataSource, UITabl
         self.tableView.reloadData()
     }
     
-
+    // MARK: - TableView Stuff
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return fetchedResultsController.sections!.count
     }
@@ -259,9 +260,19 @@ class GroceryListViewController: UIViewController, UITableViewDataSource, UITabl
             }
         }
     }
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+
 
 }
-
+// MARK: FetchedResultsController Stuff
 extension GroceryListViewController: NSFetchedResultsControllerDelegate {
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()
