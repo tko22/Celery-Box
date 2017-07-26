@@ -10,11 +10,14 @@ import UIKit
 
 class RegularItemTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var nameLabel: UILabel!
     static let reuseIdentifier = "RegularItemCell"
-    
+   
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        nameLabel.font = UIFont(name:"Raleway", size: 15)
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

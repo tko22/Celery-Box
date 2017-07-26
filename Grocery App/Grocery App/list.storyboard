@@ -10,6 +10,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Raleway-Bold.ttf">
+            <string>Raleway-Bold</string>
+        </array>
         <array key="Raleway-Regular.ttf">
             <string>Raleway-Regular</string>
         </array>
@@ -90,7 +93,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eJx-AA-TBe" id="X3b-IY-7ep">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1Z-5r-1p1">
@@ -220,65 +223,84 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="74" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0Nk-dP-lax">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="74" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0Nk-dP-lax">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="OnSaleItemCell" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" rowHeight="74" id="bKS-Vw-y9v" customClass="OnSaleItemTableViewCell" customModule="Grocery_App" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="OnSaleItemCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="OnSaleItemCell" rowHeight="74" id="bKS-Vw-y9v" customClass="OnSaleItemTableViewCell" customModule="Grocery_App" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bKS-Vw-y9v" id="B5f-46-426">
-                                            <rect key="frame" x="0.0" y="0.0" width="336" height="73.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="74"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vnd-Gy-4L8">
-                                                    <rect key="frame" x="0.0" y="0.0" width="79" height="74"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="on sale info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ijc-eR-ak5">
-                                                    <rect key="frame" x="97" y="37" width="143" height="21"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="78" height="74"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="vhb-vc-VEE"/>
+                                                        <constraint firstAttribute="width" constant="78" id="SFa-hb-Zy9"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="11"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="On sale Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ijc-eR-ak5">
+                                                    <rect key="frame" x="96" y="37" width="53" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="53" id="wy6-hV-7Wz"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Raleway-Bold" family="Raleway" pointSize="14"/>
+                                                    <color key="textColor" red="1" green="0.0" blue="0.0198914904" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9O-kB-PNX">
+                                                    <rect key="frame" x="86" y="8" width="269" height="31"/>
+                                                    <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="21"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9O-kB-PNX">
-                                                    <rect key="frame" x="87" y="14" width="229" height="21"/>
-                                                    <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hWM-oE-nwn">
+                                                    <rect key="frame" x="157" y="37" width="42" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="42" id="kAy-C4-ecg"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="10"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="F9O-kB-PNX" firstAttribute="leading" secondItem="vnd-Gy-4L8" secondAttribute="trailing" constant="8" symbolic="YES" id="5A5-bk-a8j"/>
-                                                <constraint firstItem="ijc-eR-ak5" firstAttribute="centerX" secondItem="B5f-46-426" secondAttribute="centerX" id="AdR-Gv-Whg"/>
-                                                <constraint firstItem="ijc-eR-ak5" firstAttribute="leading" secondItem="vnd-Gy-4L8" secondAttribute="trailing" constant="18" id="Ovb-wK-9IK"/>
-                                                <constraint firstItem="vnd-Gy-4L8" firstAttribute="centerY" secondItem="B5f-46-426" secondAttribute="centerY" id="ZOd-pN-ZLl"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="F9O-kB-PNX" secondAttribute="trailing" constant="12" id="bAR-nE-ENW"/>
-                                                <constraint firstItem="F9O-kB-PNX" firstAttribute="top" secondItem="B5f-46-426" secondAttribute="topMargin" constant="6" id="fQ8-Wd-thy"/>
-                                                <constraint firstItem="ijc-eR-ak5" firstAttribute="top" secondItem="F9O-kB-PNX" secondAttribute="bottom" constant="2" id="k3L-iC-nvt"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="ijc-eR-ak5" secondAttribute="trailing" constant="88" id="kSH-ra-SAE"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="ijc-eR-ak5" secondAttribute="bottom" constant="7.5" id="vSv-CP-HF1"/>
-                                                <constraint firstItem="vnd-Gy-4L8" firstAttribute="top" secondItem="B5f-46-426" secondAttribute="top" id="wP7-BS-278"/>
-                                                <constraint firstItem="vnd-Gy-4L8" firstAttribute="leading" secondItem="B5f-46-426" secondAttribute="leading" id="z9T-1D-ugn"/>
+                                                <constraint firstItem="vnd-Gy-4L8" firstAttribute="top" secondItem="B5f-46-426" secondAttribute="top" id="2MX-yj-B5b"/>
+                                                <constraint firstItem="ijc-eR-ak5" firstAttribute="top" secondItem="B5f-46-426" secondAttribute="topMargin" constant="29" id="BW2-t7-5j4"/>
+                                                <constraint firstItem="ijc-eR-ak5" firstAttribute="top" secondItem="hWM-oE-nwn" secondAttribute="top" id="D5b-1T-e3K"/>
+                                                <constraint firstItem="F9O-kB-PNX" firstAttribute="leading" secondItem="vnd-Gy-4L8" secondAttribute="trailing" constant="8" symbolic="YES" id="EBu-OM-fox"/>
+                                                <constraint firstItem="hWM-oE-nwn" firstAttribute="leading" secondItem="ijc-eR-ak5" secondAttribute="trailing" constant="8" symbolic="YES" id="Gmy-MB-ohS"/>
+                                                <constraint firstItem="vnd-Gy-4L8" firstAttribute="centerY" secondItem="B5f-46-426" secondAttribute="centerY" id="MM9-M2-97c"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="F9O-kB-PNX" secondAttribute="trailing" constant="12" id="Z2W-jD-wiF"/>
+                                                <constraint firstItem="vnd-Gy-4L8" firstAttribute="leading" secondItem="B5f-46-426" secondAttribute="leading" id="jR2-Id-XcI"/>
+                                                <constraint firstItem="ijc-eR-ak5" firstAttribute="bottom" secondItem="hWM-oE-nwn" secondAttribute="bottom" id="lge-Qe-AjQ"/>
+                                                <constraint firstItem="F9O-kB-PNX" firstAttribute="top" secondItem="B5f-46-426" secondAttribute="topMargin" constant="6" id="nhQ-Na-6ms"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="ijc-eR-ak5" secondAttribute="bottom" constant="7.5" id="std-y2-tbG"/>
+                                                <constraint firstItem="ijc-eR-ak5" firstAttribute="leading" secondItem="B5f-46-426" secondAttribute="leading" constant="96" id="wbe-4W-5hb"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="fullPriceLabel" destination="hWM-oE-nwn" id="sxT-9Z-Mx5"/>
+                                            <outlet property="imageLabel" destination="vnd-Gy-4L8" id="1EZ-H1-XG5"/>
+                                            <outlet property="nameLabel" destination="F9O-kB-PNX" id="OgM-YK-h0E"/>
+                                            <outlet property="onSalePriceLabel" destination="ijc-eR-ak5" id="InE-VH-YcV"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="RegularItemCell" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" rowHeight="57" id="mfG-dg-qM9" customClass="ShopListTableViewCell" customModule="Grocery_App" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="102" width="375" height="57"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="RegularItemCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="RegularItemCell" rowHeight="52" id="mfG-dg-qM9" customClass="RegularItemTableViewCell" customModule="Grocery_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="102" width="375" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mfG-dg-qM9" id="ZNf-jb-ZUx">
-                                            <rect key="frame" x="0.0" y="0.0" width="336" height="56.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="52"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="txy-Eq-04E">
-                                                    <rect key="frame" x="26" y="18" width="223" height="21"/>
+                                                    <rect key="frame" x="24" y="12" width="223" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="147" id="Vwd-8H-Jco"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="21"/>
+                                                    <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -289,6 +311,9 @@
                                                 <constraint firstItem="txy-Eq-04E" firstAttribute="top" secondItem="ZNf-jb-ZUx" secondAttribute="topMargin" constant="8" id="SgN-an-kMA"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="txy-Eq-04E" id="JvX-Y0-Y4Y"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -296,9 +321,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="onSaleItemInfoLabel" destination="ijc-eR-ak5" id="hAc-f5-D9e"/>
-                        <outlet property="onSaleItemNameLabel" destination="F9O-kB-PNX" id="ApP-jh-cBc"/>
-                        <outlet property="regularItemNameLabel" destination="txy-Eq-04E" id="Gq0-JB-64D"/>
                         <outlet property="tableView" destination="0Nk-dP-lax" id="YD3-Sw-px0"/>
                     </connections>
                 </viewController>
@@ -341,7 +363,7 @@
                                         <rect key="frame" x="0.0" y="72" width="375" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7jN-zl-Efp" id="2q9-Md-ZKb">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="56.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="57"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Labelthatneedstobeverylong" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wy-8h-dcr">

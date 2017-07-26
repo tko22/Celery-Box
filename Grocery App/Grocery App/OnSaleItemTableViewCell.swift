@@ -10,12 +10,19 @@ import UIKit
 
 class OnSaleItemTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var fullPriceLabel: UILabel!
+    @IBOutlet weak var imageLabel: UIImageView!
+    @IBOutlet weak var onSalePriceLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
     static let reuseIdentifier = "OnSaleItemCell"
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        nameLabel.font = UIFont(name:"Raleway", size: 21)
+        onSalePriceLabel.font = UIFont(name:"Raleway-Bold", size: 17)
+        fullPriceLabel.font = UIFont(name:"Raleway",size:12)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

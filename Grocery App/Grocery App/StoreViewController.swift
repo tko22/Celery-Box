@@ -97,7 +97,6 @@ class StoreViewController: UIViewController,UITableViewDataSource,UITableViewDel
         //check unliked_stores
         //add storeLocations to store_locations
         //http post reuqest to api
-        print("start")
         self.getListOfStores(location: location, completion: { (success, storearry) in
             if success {
                 self.store_locations = storearry
@@ -182,7 +181,7 @@ class StoreViewController: UIViewController,UITableViewDataSource,UITableViewDel
         task.resume()
     }
     func getBestStore(stores:[[String:Any]],list:[Int], completion:@escaping (Bool,[String:Any]) -> ()){
-        print("get best store")
+
         let config = URLSessionConfiguration.default // Session Configuration
         let session = URLSession(configuration: config) // Load configuration into Session
         let distance_pref:Double
@@ -445,11 +444,22 @@ class StoreViewController: UIViewController,UITableViewDataSource,UITableViewDel
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if segue.identifier == "shop_list_segue"{
-            print ("shop")
             let destVC = segue.destination as! ShopListViewController
-            destVC.onsaleitem_set = self.curr_store_info["onsaleitem_set"] as! [Any]
+            if self.curr_store_info.count == 0{
+                return
+            }
+            destVC.onsaleitem_set = self.curr_store_info["onsaleitem_set"] as! [[String:Any]]
             destVC.listOfItems = self.fetchList()
         }
+    }
+    override func shouldPerformSegue(withIdentifier identifier: String?, sender: Any?) -> Bool {
+        if identifier == "shop_list_segue" {
+            if self.curr_store_info.count == 0 {
+                return false
+            }
+        }
+        return true
+        
     }
     
     /*
