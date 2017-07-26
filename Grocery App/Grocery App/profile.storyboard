@@ -226,6 +226,10 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="privacy" translatesAutoresizingMaskIntoConstraints="NO" id="bzm-Cb-pnt">
+                                                    <rect key="frame" x="12" y="10" width="22" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -464,6 +468,7 @@
         <image name="location" width="16" height="16"/>
         <image name="money" width="32" height="32"/>
         <image name="organic" width="32" height="32"/>
+        <image name="privacy" width="32" height="32"/>
         <image name="share" width="16" height="16"/>
         <image name="store_preferences" width="64" height="52"/>
     </resources>
