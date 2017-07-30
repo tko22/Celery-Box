@@ -118,12 +118,33 @@
                                             <segue destination="5i6-JV-VfL" kind="show" id="tM0-0r-eYs"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="qdV-8T-Gqu">
+                                        <rect key="frame" x="0.0" y="160" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qdV-8T-Gqu" id="PMX-TR-a4g">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Scanner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U7Y-KX-djF">
+                                                    <rect key="frame" x="47" y="8" width="140" height="28"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <size key="shadowOffset" width="0.0" height="1"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="2ji-iD-N06" kind="show" id="DUD-va-Awt"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="About" id="gNH-xP-mQb">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="wEh-fm-xWd">
-                                        <rect key="frame" x="0.0" y="188" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="232" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wEh-fm-xWd" id="vr4-aF-1JS">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
@@ -147,7 +168,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="eFi-ET-MV6">
-                                        <rect key="frame" x="0.0" y="232" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="276" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eFi-ET-MV6" id="2RB-82-sCf">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
@@ -171,7 +192,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="pbo-Nb-1gu">
-                                        <rect key="frame" x="0.0" y="276" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="320" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pbo-Nb-1gu" id="xyZ-XC-r6d">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
@@ -192,7 +213,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="XAJ-k9-zpY">
-                                        <rect key="frame" x="0.0" y="320" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="364" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="send_feedback" tableViewCell="XAJ-k9-zpY" id="kjV-dk-d44">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
@@ -213,7 +234,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="4Fq-m2-zuY">
-                                        <rect key="frame" x="0.0" y="364" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="408" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4Fq-m2-zuY" id="vWl-3c-Uhb">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
@@ -252,6 +273,77 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ref-xL-Zmy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3236" y="542.87856071964018"/>
+        </scene>
+        <!--Set Store Location View Controller-->
+        <scene sceneID="i95-3V-BhD">
+            <objects>
+                <viewController id="2ji-iD-N06" customClass="SetStoreLocationViewController" customModule="Grocery_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iN1-55-GnG"/>
+                        <viewControllerLayoutGuide type="bottom" id="k0m-eq-h8y"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="v6d-b1-N4t">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BOg-T3-sNV">
+                                <rect key="frame" x="0.0" y="188" width="374" height="165"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Set Store" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ICJ-U2-hZF">
+                                <rect key="frame" x="122" y="78" width="130" height="21"/>
+                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aC4-gP-3F5">
+                                <rect key="frame" x="151" y="400" width="72" height="32"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="72" id="BaL-Cm-acs"/>
+                                    <constraint firstAttribute="height" constant="32" id="npb-9D-sqk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
+                                <state key="normal" title="OK">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Rav-aZ-Oc6" kind="presentation" identifier="goToScanner" id="pdl-gL-v9Y"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zi9-lE-8Zu">
+                                <rect key="frame" x="6" y="107" width="362" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Ol6-hf-A4c"/>
+                                </constraints>
+                                <string key="text">For items like steak or fruits, please enter
+prices per lb in "full price" and write 1lb in "size"</string>
+                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zi9-lE-8Zu" firstAttribute="top" secondItem="v6d-b1-N4t" secondAttribute="top" constant="107" id="2HP-tB-7sf"/>
+                            <constraint firstItem="BOg-T3-sNV" firstAttribute="leading" secondItem="v6d-b1-N4t" secondAttribute="leading" id="BAz-xT-P6C"/>
+                            <constraint firstItem="zi9-lE-8Zu" firstAttribute="top" secondItem="ICJ-U2-hZF" secondAttribute="bottom" constant="8" symbolic="YES" id="HOa-Mv-qtT"/>
+                            <constraint firstItem="BOg-T3-sNV" firstAttribute="top" secondItem="zi9-lE-8Zu" secondAttribute="bottom" constant="31" id="HfY-NL-y9k"/>
+                            <constraint firstItem="zi9-lE-8Zu" firstAttribute="centerX" secondItem="v6d-b1-N4t" secondAttribute="centerX" id="S0Y-GW-JWt"/>
+                            <constraint firstItem="aC4-gP-3F5" firstAttribute="centerX" secondItem="ICJ-U2-hZF" secondAttribute="centerX" id="dsl-Pw-8Wz"/>
+                            <constraint firstItem="BOg-T3-sNV" firstAttribute="centerX" secondItem="aC4-gP-3F5" secondAttribute="centerX" id="lhJ-5k-w6E"/>
+                            <constraint firstItem="k0m-eq-h8y" firstAttribute="top" secondItem="aC4-gP-3F5" secondAttribute="bottom" constant="186" id="oSn-rg-zOB"/>
+                            <constraint firstItem="zi9-lE-8Zu" firstAttribute="centerX" secondItem="ICJ-U2-hZF" secondAttribute="centerX" id="usA-N2-uoM"/>
+                            <constraint firstItem="aC4-gP-3F5" firstAttribute="top" secondItem="BOg-T3-sNV" secondAttribute="bottom" constant="47" id="z4C-l4-dnM"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="picker" destination="BOg-T3-sNV" id="fRr-qT-c3u"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="69f-uf-MN0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4978.3999999999996" y="308.9955022488756"/>
         </scene>
         <!--Store Preferences-->
         <scene sceneID="rC7-zF-rjk">
@@ -457,6 +549,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8sR-i8-sCA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4358" y="2029"/>
+        </scene>
+        <!--scanner-->
+        <scene sceneID="R7s-4z-O9X">
+            <objects>
+                <viewControllerPlaceholder storyboardName="scanner" id="Rav-aZ-Oc6" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tq6-UG-o3i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5718" y="301"/>
         </scene>
     </scenes>
     <resources>

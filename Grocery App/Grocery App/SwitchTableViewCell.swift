@@ -1,20 +1,19 @@
 //
-//  StoreTableViewCell.swift
+//  SwitchTableViewCell.swift
 //  Grocery App
 //
-//  Created by Timothy Ko on 7/17/17.
+//  Created by Timothy Ko on 7/29/17.
 //  Copyright © 2017 tko. All rights reserved.
 //
 
 import UIKit
 
-class StoreTableViewCell: UITableViewCell {
+class SwitchTableViewCell: UITableViewCell {
 
-    static let reuseIdentifier = "StoreInfoCell"
+    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var tableSwitch: UISwitch!
     
-    @IBOutlet weak var storeInfoLabel: UILabel!
-    
-    @IBOutlet weak var contributeLabel: UILabel!
+    static let reuseIdentifier = "SwitchCell"
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -25,5 +24,6 @@ class StoreTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
 
 }

@@ -1,20 +1,17 @@
 //
-//  StoreTableViewCell.swift
+//  ExpirationDateTableViewCell.swift
 //  Grocery App
 //
-//  Created by Timothy Ko on 7/17/17.
+//  Created by Timothy Ko on 7/29/17.
 //  Copyright © 2017 tko. All rights reserved.
 //
 
 import UIKit
 
-class StoreTableViewCell: UITableViewCell {
+class ExpirationDateTableViewCell: UITableViewCell {
+    @IBOutlet weak var datePicker: UIDatePicker!
 
-    static let reuseIdentifier = "StoreInfoCell"
-    
-    @IBOutlet weak var storeInfoLabel: UILabel!
-    
-    @IBOutlet weak var contributeLabel: UILabel!
+    static let reuseIdentifier = "DateCell"
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

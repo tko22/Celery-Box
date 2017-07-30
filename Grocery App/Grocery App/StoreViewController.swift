@@ -13,6 +13,7 @@ import Contacts
 class StoreViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var storeLogoImageView: UIImageView!
     @IBOutlet var mainView: UIView!
     @IBOutlet weak var activityIndicatorView: UIView!
     @IBOutlet weak var differentStoreButton: UIButton!
@@ -184,6 +185,7 @@ class StoreViewController: UIViewController,UITableViewDataSource,UITableViewDel
                                                 
                                                 //displays Map and hides view holding activity indicator showing the main view
                                                 self.displayMap(lat: self.curr_store_info["lat"] as! Double, lng: self.curr_store_info["lng"] as! Double)
+                                                self.storeLogoImageView.image = UIImage(named: self.curr_store_info["name"] as! String)
                                                 self.showElements()
                                             }
                                         }
@@ -373,6 +375,8 @@ class StoreViewController: UIViewController,UITableViewDataSource,UITableViewDel
             }
             else {
                 do {
+                    let dataString = String(describing: NSString(data: data!, encoding: String.Encoding.utf8.rawValue))
+                    print(dataString)
                     //JSON recieved is an Array of Stores
                     if let json = try JSONSerialization.jsonObject(with: data!) as? [String:Any]
                     {
@@ -380,7 +384,7 @@ class StoreViewController: UIViewController,UITableViewDataSource,UITableViewDel
                         if json["status"] as! String == "failed"{
                             let msg = json["message"] as? String
                             self.alert(error_msg: msg!)
-                            print("Server Error",json["message"] ?? "Server Error")
+                            print("Server Error",msg ?? "Server Error")
                         }
                         guard let stores_array = json["stores"] as? [Any] else {
                             print("cant get json[\"stores\"]")
@@ -508,17 +512,16 @@ class StoreViewController: UIViewController,UITableViewDataSource,UITableViewDel
     //shows Alert Controller with error_msg and goes back to grocery list view
     func alert(error_msg:String){
         let alert = UIAlertController(title: "Alert", message: error_msg , preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { action in
-            self.dismiss(animated: true,completion:nil)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.cancel, handler: { action in
+            _ = self.navigationController?.popViewController(animated: true)
         }))
         self.present(alert, animated: true, completion: nil)
-        _ = navigationController?.popViewController(animated: true)
     }
     //shows Alert Controller and stays in the same view
     func alertWithoutClosing(error_msg:String){
         let alert = UIAlertController(title: "Alert", message: error_msg , preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { action in
-        self.dismiss(animated: true,completion:nil)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.cancel, handler: { action in
+
         }))
         self.present(alert, animated: true, completion: nil)
     }
@@ -610,6 +613,8 @@ class StoreViewController: UIViewController,UITableViewDataSource,UITableViewDel
                         self.curr_store_info["website"] = more_info["website"] as! String
                         self.curr_store_info["phone_number"] = more_info["phone_number"] as? String
                         self.displayMap(lat: self.curr_store_info["lat"] as! Double, lng: self.curr_store_info["lng"] as! Double)
+                        
+                        self.storeLogoImageView.image = UIImage(named: self.curr_store_info["name"] as! String)
 //                        self.showElements()
                     }
                 }
@@ -660,42 +665,61 @@ class StoreViewController: UIViewController,UITableViewDataSource,UITableViewDel
     // MARK: Table View Setup
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return store_info_parts.count
+        if section == 0{
+            return store_info_parts.count
+        }
+        else {
+            return 1
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath)-> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: StoreTableViewCell.reuseIdentifier, for: indexPath) as? StoreTableViewCell else {
             fatalError("Unexpected Index Path")
         }
-        cell.storeInfoLabel?.text = store_info_parts[indexPath.row]
+        if indexPath.section == 0{
+            cell.storeInfoLabel?.text = store_info_parts[indexPath.row]
+        }
+        else {
+            cell.contributeLabel?.isHidden = false
+        }
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch (indexPath.row)
-        {
-        case 0: //Directions
-            print("Directions")
-            openMaps(name: self.curr_store_info["name"] as! String, coor: CLLocationCoordinate2D(latitude: self.curr_store_info["lat"] as! Double, longitude: self.curr_store_info["lng"] as! Double))
-        case 1: //Website
-            print("Website")
-            let url = URL(string: self.curr_store_info["website"] as! String)
-            UIApplication.shared.open(url!)
-            
-        case 2: //Phone
-            print("Phone")
-            let num = self.curr_store_info["phone_number"] as? String
-            let regex = num?.replacingOccurrences(of: "\\(|\\)|-| ", with: "", options: .regularExpression)
-            guard let number = URL(string: "tel://\(regex!)") else {
-                return
+        if indexPath.section == 0 {
+            switch (indexPath.row)
+            {
+            case 0: //Directions
+                print("Directions")
+                openMaps(name: self.curr_store_info["formatted_name"] as! String, coor: CLLocationCoordinate2D(latitude: self.curr_store_info["lat"] as! Double, longitude: self.curr_store_info["lng"] as! Double))
+            case 1: //Website
+                print("Website")
+                let url = URL(string: self.curr_store_info["website"] as! String)
+                UIApplication.shared.open(url!)
+                
+            case 2: //Phone
+                print("Phone")
+                let num = self.curr_store_info["phone_number"] as? String
+                let regex = num?.replacingOccurrences(of: "\\(|\\)|-| ", with: "", options: .regularExpression)
+                guard let number = URL(string: "tel://\(regex!)") else {
+                    return
+                }
+                UIApplication.shared.open(number)
+            default:
+                print("default case")
             }
-            UIApplication.shared.open(number)
-        default:
-            print("default case")
+
+        }
+        else{
+            print("go to scanner")
+            performSegue(withIdentifier: "goToScanner", sender: nil)
         }
     }
 

@@ -52,6 +52,7 @@ class LocationViewController: UIViewController {
             
             let userDefault = UserDefaults.standard
             userDefault.set("zip_code",forKey:"location_type")
+            userDefault.set(zip_code.text,forKey: "zip_code")
             userDefault.synchronize()
             
             //print(userDefault.object(forKey: "location") as! String)

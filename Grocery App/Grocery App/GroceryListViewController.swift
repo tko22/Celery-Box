@@ -67,6 +67,7 @@ class GroceryListViewController: UIViewController, UITableViewDataSource, UITabl
         searchBar.delegate = self
         tableView.contentInset = UIEdgeInsetsMake(0, 0, 120, 0);
         
+        
         //Checks if user is connected to internet
         if Reachability.isConnectedToNetwork(){
             print("Internet Connection OK")
@@ -98,7 +99,6 @@ class GroceryListViewController: UIViewController, UITableViewDataSource, UITabl
         } catch{
             print("cant delete")
         }
-       
         
     }
 

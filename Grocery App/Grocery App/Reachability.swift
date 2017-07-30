@@ -28,8 +28,8 @@ public class Reachability {
             return false
         }
         
-        let isReachable = flags == .reachable
-        let needsConnection = flags == .connectionRequired
+        let isReachable = (flags.rawValue & UInt32(kSCNetworkFlagsReachable)) != 0
+        let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
         
         return isReachable && !needsConnection
         

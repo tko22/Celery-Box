@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="HNt-ub-v9o">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Raleway-Regular.ttf">
+            <string>Raleway-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Barcode Reader View Controller-->
+        <scene sceneID="ZJ8-HE-tD6">
+            <objects>
+                <viewController id="HNt-ub-v9o" customClass="BarcodeReaderViewController" customModule="Grocery_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wjh-3j-6xh"/>
+                        <viewControllerLayoutGuide type="bottom" id="tIW-eB-MpL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LiK-uo-TJh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mY0-lU-rTW">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Scanner" id="Qzg-VI-59S">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="JNx-F1-JWd">
+                                            <connections>
+                                                <action selector="cancelAction:" destination="HNt-ub-v9o" id="csZ-Cn-UjY"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="tfr-OQ-VWG">
+                                            <connections>
+                                                <segue destination="sER-pr-w8u" kind="show" identifier="addNewItem" id="oJp-C0-WVL"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="sER-pr-w8u" kind="showDetail" identifier="addInfoSegue" action="showViewController:sender:" id="GFc-mn-w94"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xGm-Ai-hHd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5718" y="301"/>
+        </scene>
+        <!--Add Item View Controller-->
+        <scene sceneID="pZl-KQ-sN0">
+            <objects>
+                <viewController id="sER-pr-w8u" customClass="AddItemViewController" customModule="Grocery_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VaN-86-n4W"/>
+                        <viewControllerLayoutGuide type="bottom" id="uKM-Dz-03q"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="N5V-Ij-ZWf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zkK-MJ-q9p">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="New Item" id="jgi-IM-bzJ">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="App-YU-pCk">
+                                            <connections>
+                                                <action selector="cancelAction:" destination="sER-pr-w8u" id="4Ux-O5-UHu"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="g3C-JS-6TE">
+                                            <connections>
+                                                <action selector="saveAction:" destination="sER-pr-w8u" id="Xs5-1d-O6V"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="cps-gL-uaD">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YV6-1d-Y6y">
+                                <rect key="frame" x="0.0" y="72" width="375" height="523"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="AddItemInfoCell" rowHeight="44" id="NbY-EG-fCx" customClass="AddItemTableViewCell" customModule="Grocery_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NbY-EG-fCx" id="agA-OY-dGs">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="HcD-uB-V7A">
+                                                    <rect key="frame" x="137" y="-4" width="238" height="48"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" enablesReturnKeyAutomatically="YES"/>
+                                                    <connections>
+                                                        <action selector="textFieldPrimaryAction:" destination="NbY-EG-fCx" eventType="primaryActionTriggered" id="f86-C5-hFR"/>
+                                                    </connections>
+                                                </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phl-7M-WHh">
+                                                    <rect key="frame" x="16" y="11" width="106" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="106" id="cM7-zs-sbe"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="HcD-uB-V7A" firstAttribute="leading" secondItem="phl-7M-WHh" secondAttribute="trailing" constant="15" id="6Yk-mL-lC9"/>
+                                                <constraint firstItem="phl-7M-WHh" firstAttribute="centerY" secondItem="agA-OY-dGs" secondAttribute="centerY" id="AbZ-0v-Gs7"/>
+                                                <constraint firstItem="phl-7M-WHh" firstAttribute="leading" secondItem="agA-OY-dGs" secondAttribute="leadingMargin" constant="8" id="XkO-65-RIp"/>
+                                                <constraint firstItem="HcD-uB-V7A" firstAttribute="top" secondItem="agA-OY-dGs" secondAttribute="topMargin" constant="-12" id="eId-lF-GT0"/>
+                                                <constraint firstAttribute="trailing" secondItem="HcD-uB-V7A" secondAttribute="trailing" id="iJO-sa-VGL"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="HcD-uB-V7A" secondAttribute="bottom" constant="-8.5" id="q9U-o5-SWQ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="infoLabel" destination="phl-7M-WHh" id="zAU-kA-7GZ"/>
+                                            <outlet property="infoTextField" destination="HcD-uB-V7A" id="3CD-By-jcX"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SwitchCell" rowHeight="44" id="Tqu-xI-gzC" customClass="SwitchTableViewCell" customModule="Grocery_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Tqu-xI-gzC" id="unO-3F-N4H">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ROB-b6-EiK">
+                                                    <rect key="frame" x="310" y="7" width="51" height="31"/>
+                                                </switch>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MrK-GI-ohV">
+                                                    <rect key="frame" x="16" y="12" width="74" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="74" id="8xT-8p-ttB"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="MrK-GI-ohV" firstAttribute="leading" secondItem="unO-3F-N4H" secondAttribute="leadingMargin" constant="8" id="CeR-Hj-SRT"/>
+                                                <constraint firstItem="MrK-GI-ohV" firstAttribute="centerY" secondItem="ROB-b6-EiK" secondAttribute="centerY" id="JPb-zi-O6R"/>
+                                                <constraint firstItem="MrK-GI-ohV" firstAttribute="centerY" secondItem="unO-3F-N4H" secondAttribute="centerY" id="KzG-fR-wLD"/>
+                                                <constraint firstItem="MrK-GI-ohV" firstAttribute="top" secondItem="unO-3F-N4H" secondAttribute="topMargin" constant="4" id="jjc-hh-KFh"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ROB-b6-EiK" secondAttribute="trailing" constant="8" id="rIn-BZ-QJ6"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="label" destination="MrK-GI-ohV" id="doQ-I6-5gF"/>
+                                            <outlet property="tableSwitch" destination="ROB-b6-EiK" id="Mo2-GF-waL"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DateCell" rowHeight="173" id="smf-G0-3Be" customClass="ExpirationDateTableViewCell" customModule="Grocery_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="116" width="375" height="173"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="smf-G0-3Be" id="RVV-kA-Qxv">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="173"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="zAE-cC-wnC">
+                                                    <rect key="frame" x="0.0" y="31" width="375" height="141"/>
+                                                    <date key="date" timeIntervalSinceReferenceDate="523077662.91661698">
+                                                        <!--2017-07-30 03:21:02 +0000-->
+                                                    </date>
+                                                </datePicker>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expiration Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PQE-Zt-NvG">
+                                                    <rect key="frame" x="16" y="8" width="135" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="0Vm-fP-4ee"/>
+                                                        <constraint firstAttribute="width" constant="135" id="5kO-6U-wnL"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="PQE-Zt-NvG" firstAttribute="leading" secondItem="RVV-kA-Qxv" secondAttribute="leadingMargin" constant="8" id="3GZ-VX-omn"/>
+                                                <constraint firstItem="PQE-Zt-NvG" firstAttribute="top" secondItem="RVV-kA-Qxv" secondAttribute="topMargin" id="K67-jF-p5T"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="zAE-cC-wnC" secondAttribute="bottom" constant="-7.5" id="Mrv-5s-x1M"/>
+                                                <constraint firstItem="zAE-cC-wnC" firstAttribute="top" secondItem="PQE-Zt-NvG" secondAttribute="bottom" constant="2" id="gc4-5G-A9L"/>
+                                                <constraint firstAttribute="trailing" secondItem="zAE-cC-wnC" secondAttribute="trailing" id="i4c-PC-HCs"/>
+                                                <constraint firstItem="zAE-cC-wnC" firstAttribute="leading" secondItem="RVV-kA-Qxv" secondAttribute="leading" id="yOx-44-hnz"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="datePicker" destination="zAE-cC-wnC" id="dnG-E6-fwW"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zkK-MJ-q9p" firstAttribute="leading" secondItem="N5V-Ij-ZWf" secondAttribute="leading" id="BVG-e7-HP9"/>
+                            <constraint firstItem="zkK-MJ-q9p" firstAttribute="bottom" secondItem="YV6-1d-Y6y" secondAttribute="top" id="JyC-ab-MHp"/>
+                            <constraint firstItem="zkK-MJ-q9p" firstAttribute="trailing" secondItem="YV6-1d-Y6y" secondAttribute="trailing" id="SaL-b6-gA6"/>
+                            <constraint firstItem="zkK-MJ-q9p" firstAttribute="top" secondItem="VaN-86-n4W" secondAttribute="bottom" constant="8" id="VkB-36-u4m"/>
+                            <constraint firstItem="zkK-MJ-q9p" firstAttribute="centerX" secondItem="cps-gL-uaD" secondAttribute="centerX" id="b9N-BQ-B2s"/>
+                            <constraint firstItem="zkK-MJ-q9p" firstAttribute="leading" secondItem="YV6-1d-Y6y" secondAttribute="leading" id="cgo-OZ-PEy"/>
+                            <constraint firstAttribute="trailing" secondItem="zkK-MJ-q9p" secondAttribute="trailing" id="cxR-5J-tnu"/>
+                            <constraint firstItem="YV6-1d-Y6y" firstAttribute="centerY" secondItem="N5V-Ij-ZWf" secondAttribute="centerY" id="lKk-B2-bdS"/>
+                            <constraint firstItem="YV6-1d-Y6y" firstAttribute="centerY" secondItem="cps-gL-uaD" secondAttribute="centerY" id="q4E-SE-eS8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="cps-gL-uaD" id="HBG-ql-R86"/>
+                        <outlet property="navBarStoreName" destination="jgi-IM-bzJ" id="wHL-ix-qsv"/>
+                        <outlet property="tableView" destination="YV6-1d-Y6y" id="uiB-gK-tmD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dty-Um-eZ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6517.6000000000004" y="300.89955022488761"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="GFc-mn-w94"/>
+    </inferredMetricsTieBreakers>
+</document>
