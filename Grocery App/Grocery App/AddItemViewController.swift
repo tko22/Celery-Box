@@ -294,7 +294,7 @@ class AddItemViewController: UIViewController,UITableViewDataSource,UITableViewD
                     cell.infoTextField.text = self.presetInfo["brand"]
                 }
             case 2: // full price
-                cell.infoTextField.placeholder = "ex: 4.99"
+                cell.infoTextField.placeholder = "4.99"
             case 3: //size
                 cell.infoTextField.placeholder = "4oz or 1lb or 8oz"
             case 4: //barcode

@@ -62,7 +62,11 @@ class BarcodeReaderViewController: UIViewController, AVCaptureMetadataOutputObje
             self.previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
             DispatchQueue.main.async {
                 self.view.layer.addSublayer(self.previewLayer);
-                
+                let v = UIView.init(frame: CGRect(x:50, y: (self.view.window?.frame.height)! / 3.0, width: (self.view.window?.frame.width)!-100.0, height: 190))
+                v.layer.borderWidth = 1.3
+                v.layer.borderColor = UIColor.white.cgColor
+                v.layer.cornerRadius = 8
+                self.view.addSubview(v)
                 // Begin the capture session.
                 
                 self.session.startRunning()

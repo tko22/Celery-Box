@@ -36,7 +36,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T1g-ef-0F6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2341" y="532"/>
+            <point key="canvasLocation" x="2623" y="543"/>
         </scene>
         <!--Profile-->
         <scene sceneID="YiA-aF-P2x">
@@ -287,30 +287,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BOg-T3-sNV">
-                                <rect key="frame" x="0.0" y="188" width="374" height="165"/>
+                                <rect key="frame" x="-1" y="186" width="376" height="188"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="188" id="Zue-IX-kWE"/>
+                                </constraints>
                             </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Set Store" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ICJ-U2-hZF">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Store" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ICJ-U2-hZF">
                                 <rect key="frame" x="122" y="78" width="130" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="REh-N1-GPB"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="21"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aC4-gP-3F5">
-                                <rect key="frame" x="151" y="400" width="72" height="32"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="72" id="BaL-Cm-acs"/>
-                                    <constraint firstAttribute="height" constant="32" id="npb-9D-sqk"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
-                                <state key="normal" title="OK">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="Rav-aZ-Oc6" kind="presentation" identifier="goToScanner" id="pdl-gL-v9Y"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zi9-lE-8Zu">
                                 <rect key="frame" x="6" y="107" width="362" height="50"/>
                                 <constraints>
@@ -322,19 +312,34 @@ prices per lb in "full price" and write 1lb in "size"</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aC4-gP-3F5">
+                                <rect key="frame" x="151" y="394" width="72" height="32"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="72" id="xsa-28-PJa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
+                                <state key="normal" title="OK">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Rav-aZ-Oc6" kind="presentation" identifier="goToScanner" id="pdl-gL-v9Y"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="zi9-lE-8Zu" firstAttribute="top" secondItem="v6d-b1-N4t" secondAttribute="top" constant="107" id="2HP-tB-7sf"/>
-                            <constraint firstItem="BOg-T3-sNV" firstAttribute="leading" secondItem="v6d-b1-N4t" secondAttribute="leading" id="BAz-xT-P6C"/>
-                            <constraint firstItem="zi9-lE-8Zu" firstAttribute="top" secondItem="ICJ-U2-hZF" secondAttribute="bottom" constant="8" symbolic="YES" id="HOa-Mv-qtT"/>
-                            <constraint firstItem="BOg-T3-sNV" firstAttribute="top" secondItem="zi9-lE-8Zu" secondAttribute="bottom" constant="31" id="HfY-NL-y9k"/>
+                            <constraint firstItem="BOg-T3-sNV" firstAttribute="centerX" secondItem="zi9-lE-8Zu" secondAttribute="centerX" id="9jJ-Ke-U4o"/>
+                            <constraint firstItem="BOg-T3-sNV" firstAttribute="top" secondItem="zi9-lE-8Zu" secondAttribute="bottom" constant="29" id="Afc-lS-ZJR"/>
+                            <constraint firstItem="aC4-gP-3F5" firstAttribute="top" secondItem="BOg-T3-sNV" secondAttribute="bottom" constant="20" id="BIZ-nD-4HJ"/>
+                            <constraint firstAttribute="trailing" secondItem="BOg-T3-sNV" secondAttribute="trailing" id="R2E-AP-L3B"/>
                             <constraint firstItem="zi9-lE-8Zu" firstAttribute="centerX" secondItem="v6d-b1-N4t" secondAttribute="centerX" id="S0Y-GW-JWt"/>
-                            <constraint firstItem="aC4-gP-3F5" firstAttribute="centerX" secondItem="ICJ-U2-hZF" secondAttribute="centerX" id="dsl-Pw-8Wz"/>
-                            <constraint firstItem="BOg-T3-sNV" firstAttribute="centerX" secondItem="aC4-gP-3F5" secondAttribute="centerX" id="lhJ-5k-w6E"/>
-                            <constraint firstItem="k0m-eq-h8y" firstAttribute="top" secondItem="aC4-gP-3F5" secondAttribute="bottom" constant="186" id="oSn-rg-zOB"/>
-                            <constraint firstItem="zi9-lE-8Zu" firstAttribute="centerX" secondItem="ICJ-U2-hZF" secondAttribute="centerX" id="usA-N2-uoM"/>
-                            <constraint firstItem="aC4-gP-3F5" firstAttribute="top" secondItem="BOg-T3-sNV" secondAttribute="bottom" constant="47" id="z4C-l4-dnM"/>
+                            <constraint firstItem="ICJ-U2-hZF" firstAttribute="centerX" secondItem="zi9-lE-8Zu" secondAttribute="centerX" id="SPf-w6-pAw"/>
+                            <constraint firstItem="zi9-lE-8Zu" firstAttribute="top" secondItem="ICJ-U2-hZF" secondAttribute="bottom" constant="8" symbolic="YES" id="bH2-kF-fey"/>
+                            <constraint firstItem="ICJ-U2-hZF" firstAttribute="top" secondItem="iN1-55-GnG" secondAttribute="bottom" constant="14" id="hdH-ym-NHQ"/>
+                            <constraint firstItem="aC4-gP-3F5" firstAttribute="centerX" secondItem="BOg-T3-sNV" secondAttribute="centerX" id="rNu-dx-KkP"/>
                         </constraints>
                     </view>
                     <connections>
@@ -343,7 +348,7 @@ prices per lb in "full price" and write 1lb in "size"</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="69f-uf-MN0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4978.3999999999996" y="308.9955022488756"/>
+            <point key="canvasLocation" x="4977.5" y="308.5"/>
         </scene>
         <!--Store Preferences-->
         <scene sceneID="rC7-zF-rjk">
@@ -429,7 +434,7 @@ prices per lb in "full price" and write 1lb in "size"</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Change Location" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r1C-lR-Ch7">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change Location" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r1C-lR-Ch7">
                                 <rect key="frame" x="86" y="138" width="202" height="28"/>
                                 <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="24"/>
                                 <nil key="textColor"/>
@@ -460,8 +465,8 @@ prices per lb in "full price" and write 1lb in "size"</string>
                                     <segue destination="dl1-if-Jau" kind="unwind" unwindAction="unwindToProfileWithSegue:" id="mLz-rV-Zw6"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Zip Code" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LRc-w0-A4x">
-                                <rect key="frame" x="118" y="318" width="138" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Zip Code" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LRc-w0-A4x">
+                                <rect key="frame" x="118" y="323" width="138" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -472,14 +477,15 @@ prices per lb in "full price" and write 1lb in "size"</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="r1C-lR-Ch7" firstAttribute="top" secondItem="dkE-H0-i6i" secondAttribute="bottom" constant="88" id="0h7-K1-3du"/>
                             <constraint firstItem="SEJ-Qz-Uyl" firstAttribute="centerX" secondItem="HSa-gU-cJP" secondAttribute="centerX" id="74W-wa-lEP"/>
-                            <constraint firstItem="5vH-K9-Yfm" firstAttribute="top" secondItem="r1C-lR-Ch7" secondAttribute="bottom" constant="32" id="8Ii-MQ-Az7"/>
+                            <constraint firstItem="r1C-lR-Ch7" firstAttribute="centerX" secondItem="5vH-K9-Yfm" secondAttribute="centerX" id="A5O-Zw-JnH"/>
                             <constraint firstItem="SEJ-Qz-Uyl" firstAttribute="top" secondItem="5vH-K9-Yfm" secondAttribute="bottom" constant="27" id="M1u-C5-lpl"/>
+                            <constraint firstItem="r1C-lR-Ch7" firstAttribute="top" secondItem="dkE-H0-i6i" secondAttribute="bottom" constant="74" id="NSp-Dd-bwO"/>
                             <constraint firstItem="5vH-K9-Yfm" firstAttribute="leading" secondItem="HSa-gU-cJP" secondAttribute="leadingMargin" constant="79" id="Syd-sa-x8y"/>
                             <constraint firstItem="5vH-K9-Yfm" firstAttribute="centerX" secondItem="HSa-gU-cJP" secondAttribute="centerX" id="Wvr-Wd-N4o"/>
-                            <constraint firstItem="r1C-lR-Ch7" firstAttribute="centerX" secondItem="HSa-gU-cJP" secondAttribute="centerX" id="e4K-bR-nlD"/>
+                            <constraint firstItem="r1C-lR-Ch7" firstAttribute="leading" secondItem="HSa-gU-cJP" secondAttribute="leadingMargin" constant="70" id="bta-bP-xAH"/>
                             <constraint firstItem="LRc-w0-A4x" firstAttribute="top" secondItem="SEJ-Qz-Uyl" secondAttribute="bottom" constant="30" id="g4e-em-Np1"/>
+                            <constraint firstItem="5vH-K9-Yfm" firstAttribute="top" secondItem="r1C-lR-Ch7" secondAttribute="bottom" constant="46" id="rhp-ew-Tvh"/>
                             <constraint firstItem="LRc-w0-A4x" firstAttribute="centerX" secondItem="HSa-gU-cJP" secondAttribute="centerX" id="xL9-q1-KyR"/>
                         </constraints>
                     </view>
