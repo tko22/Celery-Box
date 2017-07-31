@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import FirebaseAnalytics
 class ShopListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     
@@ -33,6 +33,11 @@ class ShopListViewController: UIViewController, UITableViewDataSource, UITableVi
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
+            AnalyticsParameterItemID: "id-InStoreShoppingList" as NSObject,
+            AnalyticsParameterItemName: "InStoreShoppingList" as NSObject,
+            AnalyticsParameterContentType: "Shopper used list to go shopping" as NSObject
+            ])
         // Deletes items that are on sale in the regular priced items list
         for x in self.onsaleitem_set {
             self.regularitem_set = self.regularitem_set.filter {

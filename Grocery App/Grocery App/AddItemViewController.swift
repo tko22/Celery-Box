@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import FirebaseAnalytics
 class AddItemViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -34,7 +34,11 @@ class AddItemViewController: UIViewController,UITableViewDataSource,UITableViewD
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
+            AnalyticsParameterItemID: "id-AddingItemWithBarcode" as NSObject,
+            AnalyticsParameterItemName: "AddingItemWithBarcode" as NSObject,
+            AnalyticsParameterContentType: "User is adding item" as NSObject
+            ])
         self.presetInfo.removeAll()
         if self.item_info_parts.count > 6{
             self.item_info_parts.removeLast()
@@ -228,6 +232,11 @@ class AddItemViewController: UIViewController,UITableViewDataSource,UITableViewD
         let coor = UserLocation.sharedInstance.getCurrentLocation().coordinate
         dict["location"] = "\(coor.latitude),\(coor.longitude)"
         
+        Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
+            AnalyticsParameterItemID: "id-SuccessfullyAddedItem" as NSObject,
+            AnalyticsParameterItemName: "SuccessfullyAddedItem" as NSObject,
+            AnalyticsParameterContentType: "Item \(String(describing: dict["name"])) as \(String(describing: dict["barcode"]))" as NSObject
+            ])
         alert(error_msg: "\(dict)")
     }
     

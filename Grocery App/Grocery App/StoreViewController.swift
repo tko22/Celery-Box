@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import CoreData
 import Contacts
+import Firebase
 class StoreViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -83,7 +84,11 @@ class StoreViewController: UIViewController,UITableViewDataSource,UITableViewDel
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
+            AnalyticsParameterItemID: "id-FindBestStore" as NSObject,
+            AnalyticsParameterItemName: "FindBestStore" as NSObject,
+            AnalyticsParameterContentType: "User looked for the best store according to his/her list" as NSObject
+            ])
         //checks if there are any items in items in the shopping list
         if self.fetchList().count == 0{
             alert(error_msg: "Please add items to your shopping list first!")
@@ -187,6 +192,11 @@ class StoreViewController: UIViewController,UITableViewDataSource,UITableViewDel
                                                 self.displayMap(lat: self.curr_store_info["lat"] as! Double, lng: self.curr_store_info["lng"] as! Double)
                                                 self.storeLogoImageView.image = UIImage(named: self.curr_store_info["name"] as! String)
                                                 self.showElements()
+                                                Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
+                                                    AnalyticsParameterItemID: "id-FindBestStore_success" as NSObject,
+                                                    AnalyticsParameterItemName: "FindBestStore_success" as NSObject,
+                                                    AnalyticsParameterContentType: "Found best store and displayed successfully" as NSObject
+                                                    ])
                                             }
                                         }
                                         else {
@@ -516,6 +526,11 @@ class StoreViewController: UIViewController,UITableViewDataSource,UITableViewDel
             _ = self.navigationController?.popViewController(animated: true)
         }))
         self.present(alert, animated: true, completion: nil)
+        Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
+            AnalyticsParameterItemID: "id-ErrorFindBestStore" as NSObject,
+            AnalyticsParameterItemName: "Error finding best store" as NSObject,
+            AnalyticsParameterContentType: "\(error_msg)" as NSObject
+            ])
     }
     //shows Alert Controller and stays in the same view
     func alertWithoutClosing(error_msg:String){
@@ -587,6 +602,11 @@ class StoreViewController: UIViewController,UITableViewDataSource,UITableViewDel
     @IBAction func findDifferentStore(_ sender: UIButton) {
         print("Different Store button clicked")
         //get self.listOfStoresFound
+        Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
+            AnalyticsParameterItemID: "id-findDifferentStore" as NSObject,
+            AnalyticsParameterItemName: "findDifferentStore" as NSObject,
+            AnalyticsParameterContentType: "Switching \(String(describing: self.curr_store_info["name"]))" as NSObject
+            ])
         self.different_store_counter = self.different_store_counter + 1
         if self.different_store_counter >= self.listOfStoresFound.count{
             self.alertWithoutClosing(error_msg: "No more stores are available")

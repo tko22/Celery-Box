@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 import CoreLocation
-
+import FirebaseAnalytics
 class BarcodeReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
 
     var session: AVCaptureSession!
@@ -75,8 +75,8 @@ class BarcodeReaderViewController: UIViewController, AVCaptureMetadataOutputObje
     }
     
     @IBAction func cancelAction(_ sender: Any) {
-        _ = self.navigationController?.popToRootViewController(animated: true)
         self.dismiss(animated: true, completion: nil)
+        _ = self.navigationController?.popToRootViewController(animated: true)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -84,8 +84,12 @@ class BarcodeReaderViewController: UIViewController, AVCaptureMetadataOutputObje
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
         super.viewWillAppear(animated)
+        Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
+            AnalyticsParameterItemID: "id-AccessBarcodeScanner" as NSObject,
+            AnalyticsParameterItemName: "AccessBarcodeScanner" as NSObject,
+            AnalyticsParameterContentType: "User Accessed Barcode Scanner Camera" as NSObject
+            ])
         if (session?.isRunning == false) {
             session.startRunning()
         }
