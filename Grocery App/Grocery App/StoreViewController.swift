@@ -13,21 +13,14 @@ import Contacts
 import Firebase
 class StoreViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
 
+    
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var storeLogoImageView: UIImageView!
-    @IBOutlet var mainView: UIView!
-    @IBOutlet weak var activityIndicatorView: UIView!
-    @IBOutlet weak var differentStoreButton: UIButton!
-    @IBOutlet weak var goToMapView: UIView!
-    @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var storeNameLabel: UILabel!
+    
     @IBOutlet weak var storeInfoTableView: UITableView!
-    @IBOutlet weak var storeAddressLabel: UILabel!
-    @IBOutlet weak var moneySavedLabel: UILabel!
-    @IBOutlet weak var StoreTodaysHourLabel: UILabel!
+    
     
     let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    let domain = "http://192.168.0.102:8000"
+    let domain = "http://192.168.0.111:8000"
     
     /*
         Array of stores parsed from google maps api request
@@ -62,19 +55,13 @@ class StoreViewController: UIViewController,UITableViewDataSource,UITableViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        storeNameLabel.font = UIFont(name:"Raleway", size: 25)
-        StoreTodaysHourLabel.font = UIFont(name:"Raleway",size:12)
-        
-        //sets up gesture recognizer for the view that overlaps the map - opens map when clicked
-        let gesture = UITapGestureRecognizer(target: self, action: #selector (self.goToMaps(_:)))
-        goToMapView.addGestureRecognizer(gesture)
         
         //TableView stuff
         storeInfoTableView.dataSource = self
         storeInfoTableView.delegate = self
         storeInfoTableView.contentInset = UIEdgeInsetsMake(0, 0, 120, 0);
         storeInfoTableView.tableFooterView = UIView()
-        differentStoreButton.layer.cornerRadius = 4
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -94,6 +81,8 @@ class StoreViewController: UIViewController,UITableViewDataSource,UITableViewDel
             alert(error_msg: "Please add items to your shopping list first!")
         }
         self.activityIndicator.startAnimating()
+        self.activityIndicator.isHidden = false
+        self.storeInfoTableView.isHidden = true
         startFindingStore()
     }
     
@@ -176,9 +165,7 @@ class StoreViewController: UIViewController,UITableViewDataSource,UITableViewDel
                                         if bool {
                                             DispatchQueue.main.async(){
                                                 
-                                                self.storeNameLabel.text = more_info["name"] as? String
-                                                self.storeAddressLabel.text = more_info["address"] as? String
-                                                self.StoreTodaysHourLabel.text = more_info["hours"] as? String
+                                                
                                                 //TODO: change image view - get url domain.com/static/store_formatted_name.jpg
                                                 
                                                 //adds additional information into self.curr_store_info - formatted_name,address,hours,website,phone number
@@ -187,10 +174,8 @@ class StoreViewController: UIViewController,UITableViewDataSource,UITableViewDel
                                                 self.curr_store_info["hours"] = more_info["hours"] as! String
                                                 self.curr_store_info["website"] = more_info["website"] as! String
                                                 self.curr_store_info["phone_number"] = more_info["phone_number"] as? String
+                                                self.storeInfoTableView.reloadData()
                                                 
-                                                //displays Map and hides view holding activity indicator showing the main view
-                                                self.displayMap(lat: self.curr_store_info["lat"] as! Double, lng: self.curr_store_info["lng"] as! Double)
-                                                self.storeLogoImageView.image = UIImage(named: self.curr_store_info["name"] as! String)
                                                 self.showElements()
                                                 Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
                                                     AnalyticsParameterItemID: "id-FindBestStore_success" as NSObject,
@@ -322,6 +307,7 @@ class StoreViewController: UIViewController,UITableViewDataSource,UITableViewDel
                                 let coordinates = geoJSON["location"] as! [String:Double]
                                 let lat = coordinates["lat"]!
                                 let lng = coordinates["lng"]!
+                                
                                 let distance = CLLocation(latitude: lat, longitude: lng).distance(from: location)
                                 
                                 array.append(["name":name.lowercased().replacingOccurrences(of: " ", with: "_").replacingOccurrences(of: "\'", with: "").replacingOccurrences(of: "-", with: ""),"place_id":place_id,"lat":lat,"lng":lng,"distance":distance])
@@ -385,8 +371,7 @@ class StoreViewController: UIViewController,UITableViewDataSource,UITableViewDel
             }
             else {
                 do {
-                    let dataString = String(describing: NSString(data: data!, encoding: String.Encoding.utf8.rawValue))
-                    print(dataString)
+                    //let dataString = String(describing: NSString(data: data!, encoding: String.Encoding.utf8.rawValue))
                     //JSON recieved is an Array of Stores
                     if let json = try JSONSerialization.jsonObject(with: data!) as? [String:Any]
                     {
@@ -541,48 +526,6 @@ class StoreViewController: UIViewController,UITableViewDataSource,UITableViewDel
         self.present(alert, animated: true, completion: nil)
     }
     
-    //Displays map in View -- Does NOT open MAPS
-    func displayMap(lat:Double,lng:Double){
-        print("Displaying Map")
-        //Set up Location
-        let initialLocation = CLLocation(latitude: lat, longitude: lng)
-        let regionRadius: CLLocationDistance = 450
-        func centerMapOnLocation(location: CLLocation) {
-            let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
-                                                                      regionRadius * 2.0, regionRadius * 2.0)
-            mapView.setRegion(coordinateRegion, animated: true)
-        }
-        centerMapOnLocation(location: initialLocation)
-        
-        //Sets Marker on Map
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lng)
-        mapView.addAnnotation(annotation)
-    }
-    
-    
-    // > button clicked -> Opens Maps
-    @IBAction func goToMapsButtonAction(_ sender: UIButton) {
-        print("Button_maps clicked ")
-        //go to google maps with coordinates
-        openMaps(name: self.curr_store_info["formatted_name"] as! String,coor: CLLocationCoordinate2D(latitude: self.curr_store_info["lat"] as! Double, longitude: self.curr_store_info["lng"] as! Double))
-        goToMapView.alpha = 0.9
-        UIView.animate(withDuration: 0.6, animations: {
-            self.goToMapView.alpha = 1
-        })
-    }
-    
-    //entire view with address clicked -> Opens Maps
-    func goToMaps(_ sender:UITapGestureRecognizer){
-        print("Address view clicked")
-        //go to google maps with coordinates
-        openMaps(name: self.curr_store_info["formatted_name"] as! String,coor: CLLocationCoordinate2D(latitude: self.curr_store_info["lat"] as! Double, longitude: self.curr_store_info["lng"] as! Double))
-
-        goToMapView.alpha = 0.9
-        UIView.animate(withDuration: 0.6, animations: {
-            self.goToMapView.alpha = 1
-        })
-    }
     
     //function that opens Apple Maps
     func openMaps(name:String,coor:CLLocationCoordinate2D){
@@ -598,63 +541,59 @@ class StoreViewController: UIViewController,UITableViewDataSource,UITableViewDel
         mapItem.name = name
         mapItem.openInMaps(launchOptions: options)
     }
-    //Action when find Different Store button is clicked - checks whether there are anymore stores left to go through
-    @IBAction func findDifferentStore(_ sender: UIButton) {
-        print("Different Store button clicked")
-        //get self.listOfStoresFound
-        Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
-            AnalyticsParameterItemID: "id-findDifferentStore" as NSObject,
-            AnalyticsParameterItemName: "findDifferentStore" as NSObject,
-            AnalyticsParameterContentType: "Switching \(String(describing: self.curr_store_info["name"]))" as NSObject
-            ])
-        self.different_store_counter = self.different_store_counter + 1
-        if self.different_store_counter >= self.listOfStoresFound.count{
-            self.alertWithoutClosing(error_msg: "No more stores are available")
-        }
-        else{
-//            activityIndicatorView.isHidden = false
-//            activityIndicator.startAnimating()
-            
-            //gets additional store information and displays it
-            self.curr_store_info = self.listOfStoresFound[self.different_store_counter] as! [String : Any]
-            self.getStoreInfo(place_id: self.curr_store_info["place_id"] as! String, completion: { (bool, more_info) in
-                if bool {
 
-                    DispatchQueue.main.async(){
-                        self.storeNameLabel.text = more_info["name"] as? String
-                        self.storeAddressLabel.text = more_info["address"] as? String
-                        self.StoreTodaysHourLabel.text = more_info["hours"] as? String
-                        
-                        //TODO: change image view
-                        
-                        self.curr_store_info["formatted_name"] = more_info["name"] as? String
-                        self.curr_store_info["address"] = more_info["address"] as! String
-                        self.curr_store_info["hours"] = more_info["hours"] as! String
-                        self.curr_store_info["website"] = more_info["website"] as! String
-                        self.curr_store_info["phone_number"] = more_info["phone_number"] as? String
-                        self.displayMap(lat: self.curr_store_info["lat"] as! Double, lng: self.curr_store_info["lng"] as! Double)
-                        
-                        self.storeLogoImageView.image = UIImage(named: self.curr_store_info["name"] as! String)
-//                        self.showElements()
-                    }
-                }
-                
-            })
-        }
-        
-    }
     
     //Hides view that holds activity indicator
     func showElements(){
-        activityIndicatorView.isHidden = true
-        activityIndicator.stopAnimating()
-        activityIndicator.isHidden = true
+        self.activityIndicator.isHidden = true
+        self.activityIndicator.stopAnimating()
+        self.storeInfoTableView.isHidden = false
     }
     //gets Day of Week - called by getStoreInfo()
     func getDayOfWeek()->Int? {
         return Calendar.current.component(.weekday, from: Date())
     }
     
+    //Action when find Different Store button is clicked - checks whether there are anymore stores left to go through
+    func differentStoreAction(sender: UIButton){
+        if sender.tag == 150{
+            print("Different Store button clicked")
+            //get self.listOfStoresFound
+            Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
+                AnalyticsParameterItemID: "id-findDifferentStore" as NSObject,
+                AnalyticsParameterItemName: "findDifferentStore" as NSObject,
+                AnalyticsParameterContentType: "Switching \(String(describing: self.curr_store_info["name"]))" as NSObject
+                ])
+            self.different_store_counter = self.different_store_counter + 1
+            if self.different_store_counter >= self.listOfStoresFound.count{
+                self.alertWithoutClosing(error_msg: "No more stores are available")
+            }
+            else{
+                //            activityIndicatorView.isHidden = false
+                //            activityIndicator.startAnimating()
+                
+                //gets additional store information and displays it
+                self.curr_store_info = self.listOfStoresFound[self.different_store_counter] as! [String : Any]
+                self.getStoreInfo(place_id: self.curr_store_info["place_id"] as! String, completion: { (bool, more_info) in
+                    if bool {
+                        
+                        DispatchQueue.main.async(){
+                            
+                            //TODO: change image view
+                            
+                            self.curr_store_info["formatted_name"] = more_info["name"] as? String
+                            self.curr_store_info["address"] = more_info["address"] as! String
+                            self.curr_store_info["hours"] = more_info["hours"] as! String
+                            self.curr_store_info["website"] = more_info["website"] as! String
+                            self.curr_store_info["phone_number"] = more_info["phone_number"] as? String
+                            self.storeInfoTableView.reloadData()
+                        }
+                    }
+                    
+                })
+            }
+        }
+    }
     
     // MARK: - Navigation
     
@@ -685,11 +624,14 @@ class StoreViewController: UIViewController,UITableViewDataSource,UITableViewDel
     // MARK: Table View Setup
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0{
+            return 1
+        }
+        else if section == 1{
             return store_info_parts.count
         }
         else {
@@ -699,21 +641,34 @@ class StoreViewController: UIViewController,UITableViewDataSource,UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath)-> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: StoreTableViewCell.reuseIdentifier, for: indexPath) as? StoreTableViewCell else {
-            fatalError("Unexpected Index Path")
-        }
         if indexPath.section == 0{
-            cell.storeInfoLabel?.text = store_info_parts[indexPath.row]
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: StoreInfoTableViewCell.reuseIdentifier, for: indexPath) as? StoreInfoTableViewCell else {
+                fatalError("Unexpected Index Path")
+            }
+            cell.configure(curr_store: self.curr_store_info)
+            cell.differentStoreButton.addTarget(self, action: #selector(differentStoreAction(sender:)), for: .touchUpInside)
+            return cell
         }
         else {
-            cell.contributeLabel?.isHidden = false
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: StoreTableViewCell.reuseIdentifier, for: indexPath) as? StoreTableViewCell else {
+                fatalError("Unexpected Index Path")
+            }
+            if indexPath.section == 1{
+                cell.storeInfoLabel?.text = store_info_parts[indexPath.row]
+            }
+            else{
+                cell.storeInfoLabel?.isHidden = true
+                cell.contributeLabel?.isHidden = false
+            }
+            return cell
+            
         }
         
-        return cell
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 0 {
+        if indexPath.section == 1 {
             switch (indexPath.row)
             {
             case 0: //Directions
@@ -737,9 +692,29 @@ class StoreViewController: UIViewController,UITableViewDataSource,UITableViewDel
             }
 
         }
-        else{
+        else if indexPath.section == 2{
             print("go to scanner")
             performSegue(withIdentifier: "goToScanner", sender: nil)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        if indexPath.section == 0{
+            return 418
+        }
+        else {
+            return 44
+        }
+    }
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 1{
+            return "Store Info"
+        } else if section == 2{
+            return " "
+        }
+        else{
+            return nil
         }
     }
 

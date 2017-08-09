@@ -10,7 +10,7 @@ import UIKit
 
 class StoreTableViewCell: UITableViewCell {
 
-    static let reuseIdentifier = "StoreInfoCell"
+    static let reuseIdentifier = "StoreMinInfoCell"
     
     @IBOutlet weak var storeInfoLabel: UILabel!
     

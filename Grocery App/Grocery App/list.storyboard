@@ -40,66 +40,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gxF-Yl-stv">
-                                <rect key="frame" x="0.0" y="130" width="375" height="246"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="246" id="Esb-84-IcW"/>
-                                </constraints>
-                            </mapView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NxS-Kw-5Wr">
-                                <rect key="frame" x="0.0" y="311" width="375" height="65"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="adresss asdfasdf  asdfasdfasdfasdf address" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="88O-Ul-5Q0">
-                                        <rect key="frame" x="20" y="4" width="252" height="59"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q21-qo-RHO">
-                                        <rect key="frame" x="342" y="23" width="25" height="25"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" backgroundImage="next"/>
-                                        <connections>
-                                            <action selector="goToMapsButtonAction:" destination="eXH-ph-AT2" eventType="touchUpInside" id="vRq-Q2-ExE"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="57V-zQ-HS9">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="3" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="twU-So-ISX">
+                                <rect key="frame" x="0.0" y="64" width="375" height="602"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saved $40!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OeG-3W-OZh">
-                                <rect key="frame" x="24" y="392" width="157" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="EEq-Qv-2AS"/>
-                                    <constraint firstAttribute="width" constant="157" id="rHn-s4-RQ8"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="24"/>
-                                <color key="textColor" red="1" green="0.059605572916622496" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QYN-OU-N13">
-                                <rect key="frame" x="16" y="392" width="0.0" height="0.0"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F1T-2Y-ZsP">
-                                <rect key="frame" x="113" y="421" width="149" height="32"/>
-                                <color key="backgroundColor" red="0.1999839574" green="0.46605210060000002" blue="0.96621346470000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
-                                <state key="normal" title="Different Store!">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="findDifferentStore:" destination="eXH-ph-AT2" eventType="touchUpInside" id="EbI-Mh-lO0"/>
-                                </connections>
-                            </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" bounces="NO" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="twU-So-ISX">
-                                <rect key="frame" x="0.0" y="463" width="375" height="196"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="StoreInfoCell" id="eJx-AA-TBe" customClass="StoreTableViewCell" customModule="Grocery_App" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="StoreMinInfoCell" id="eJx-AA-TBe" customClass="StoreTableViewCell" customModule="Grocery_App" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eJx-AA-TBe" id="X3b-IY-7ep">
@@ -139,74 +90,131 @@
                                             <outlet property="storeInfoLabel" destination="m1Z-5r-1p1" id="zDj-OT-RhO"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="StoreInfoCell" rowHeight="418" id="T7f-TP-mpX" customClass="StoreInfoTableViewCell" customModule="Grocery_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="72" width="375" height="418"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="T7f-TP-mpX" id="feb-fb-DXk">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="417.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gxf-Mo-9wk">
+                                                    <rect key="frame" x="0.0" y="0.0" width="82" height="68"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="68" id="Tne-fg-23i"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Store Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yxL-jD-wuO">
+                                                    <rect key="frame" x="90" y="8" width="138" height="30"/>
+                                                    <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="25"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5D-QL-GET">
+                                                    <rect key="frame" x="90" y="38" width="238" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="0LM-Wp-PeL"/>
+                                                        <constraint firstAttribute="width" constant="238" id="h3e-0W-nBa"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gxF-Yl-stv">
+                                                    <rect key="frame" x="0.0" y="67" width="375" height="228"/>
+                                                </mapView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NxS-Kw-5Wr">
+                                                    <rect key="frame" x="0.0" y="268" width="375" height="68"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q21-qo-RHO">
+                                                            <rect key="frame" x="342" y="23" width="25" height="25"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="25" id="D98-zH-qTg"/>
+                                                                <constraint firstAttribute="width" constant="25" id="FlD-SF-VfA"/>
+                                                            </constraints>
+                                                            <state key="normal" backgroundImage="next"/>
+                                                            <connections>
+                                                                <action selector="goToMapsButtonAction:" destination="T7f-TP-mpX" eventType="touchUpInside" id="10g-aL-gK3"/>
+                                                            </connections>
+                                                        </button>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="adresss asdfasdf  asdfasdfasdfasdf address" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="88O-Ul-5Q0">
+                                                            <rect key="frame" x="17" y="16" width="252" height="40"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="252" id="em1-Sj-ydU"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="88O-Ul-5Q0" firstAttribute="centerY" secondItem="Q21-qo-RHO" secondAttribute="centerY" id="AHB-da-a2B"/>
+                                                        <constraint firstItem="88O-Ul-5Q0" firstAttribute="leading" secondItem="NxS-Kw-5Wr" secondAttribute="leading" constant="17" id="DWf-GY-jNB"/>
+                                                        <constraint firstItem="88O-Ul-5Q0" firstAttribute="top" secondItem="NxS-Kw-5Wr" secondAttribute="top" constant="16" id="iZk-bv-rzf"/>
+                                                        <constraint firstItem="Q21-qo-RHO" firstAttribute="leading" secondItem="88O-Ul-5Q0" secondAttribute="trailing" constant="73" id="y97-t0-qpq"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saved $40!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OeG-3W-OZh">
+                                                    <rect key="frame" x="8" y="341" width="157" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="157" id="dYt-IP-ELN"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="24"/>
+                                                    <color key="textColor" red="1" green="0.059605572916622496" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F1T-2Y-ZsP">
+                                                    <rect key="frame" x="120" y="370" width="135" height="32"/>
+                                                    <color key="backgroundColor" red="0.1999839574" green="0.46605210060000002" blue="0.96621346470000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="135" id="fR3-iQ-3Pt"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
+                                                    <size key="titleShadowOffset" width="10" height="0.0"/>
+                                                    <state key="normal" title="Different Store!">
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="NxS-Kw-5Wr" secondAttribute="trailing" id="2Im-cd-aZf"/>
+                                                <constraint firstItem="gxF-Yl-stv" firstAttribute="top" secondItem="S5D-QL-GET" secondAttribute="bottom" constant="8" symbolic="YES" id="EsS-a0-ckk"/>
+                                                <constraint firstItem="yxL-jD-wuO" firstAttribute="leading" secondItem="S5D-QL-GET" secondAttribute="leading" id="JYl-og-X2g"/>
+                                                <constraint firstItem="gxf-Mo-9wk" firstAttribute="leading" secondItem="feb-fb-DXk" secondAttribute="leading" id="KRE-M2-Raz"/>
+                                                <constraint firstItem="OeG-3W-OZh" firstAttribute="top" secondItem="gxF-Yl-stv" secondAttribute="bottom" constant="46" id="MNa-XA-nX1"/>
+                                                <constraint firstItem="OeG-3W-OZh" firstAttribute="top" secondItem="NxS-Kw-5Wr" secondAttribute="bottom" constant="5" id="QeH-KC-nV3"/>
+                                                <constraint firstItem="yxL-jD-wuO" firstAttribute="top" secondItem="feb-fb-DXk" secondAttribute="topMargin" id="Tgm-WP-YX1"/>
+                                                <constraint firstItem="gxF-Yl-stv" firstAttribute="trailing" secondItem="NxS-Kw-5Wr" secondAttribute="trailing" id="VXW-rK-Gdo"/>
+                                                <constraint firstAttribute="bottom" secondItem="NxS-Kw-5Wr" secondAttribute="bottom" constant="81.5" id="XEN-ah-dAH"/>
+                                                <constraint firstItem="S5D-QL-GET" firstAttribute="top" secondItem="feb-fb-DXk" secondAttribute="top" constant="38" id="ZDu-fQ-k9i"/>
+                                                <constraint firstItem="F1T-2Y-ZsP" firstAttribute="centerX" secondItem="NxS-Kw-5Wr" secondAttribute="centerX" id="aVI-fW-dNP"/>
+                                                <constraint firstItem="gxF-Yl-stv" firstAttribute="leading" secondItem="gxf-Mo-9wk" secondAttribute="leading" id="fgj-eX-gPp"/>
+                                                <constraint firstItem="gxf-Mo-9wk" firstAttribute="top" secondItem="feb-fb-DXk" secondAttribute="top" id="fid-59-B8N"/>
+                                                <constraint firstItem="gxF-Yl-stv" firstAttribute="leading" secondItem="NxS-Kw-5Wr" secondAttribute="leading" id="g8n-ee-86c"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="OeG-3W-OZh" secondAttribute="bottom" constant="47.5" id="izf-7I-cS5"/>
+                                                <constraint firstItem="F1T-2Y-ZsP" firstAttribute="top" secondItem="OeG-3W-OZh" secondAttribute="bottom" constant="8" symbolic="YES" id="js8-AN-QYD"/>
+                                                <constraint firstItem="NxS-Kw-5Wr" firstAttribute="top" secondItem="feb-fb-DXk" secondAttribute="top" constant="268" id="p3y-fN-0Ty"/>
+                                                <constraint firstItem="S5D-QL-GET" firstAttribute="leading" secondItem="feb-fb-DXk" secondAttribute="leading" constant="90" id="pqA-hz-1s1"/>
+                                                <constraint firstItem="OeG-3W-OZh" firstAttribute="leading" secondItem="feb-fb-DXk" secondAttribute="leadingMargin" id="uyF-b3-90a"/>
+                                                <constraint firstItem="yxL-jD-wuO" firstAttribute="leading" secondItem="gxf-Mo-9wk" secondAttribute="trailing" constant="8" symbolic="YES" id="xjz-Cp-Ia0"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="differentStoreButton" destination="F1T-2Y-ZsP" id="VQ2-Bf-XU7"/>
+                                            <outlet property="goToMapsView" destination="NxS-Kw-5Wr" id="PE0-qO-hlh"/>
+                                            <outlet property="mapView" destination="gxF-Yl-stv" id="Rz1-Uh-wYB"/>
+                                            <outlet property="moneySavedLabel" destination="OeG-3W-OZh" id="zHp-0N-bM9"/>
+                                            <outlet property="storeAddressLabel" destination="88O-Ul-5Q0" id="Mu8-RR-tlY"/>
+                                            <outlet property="storeLogoImageView" destination="gxf-Mo-9wk" id="cm7-OO-Q47"/>
+                                            <outlet property="storeNameLabel" destination="yxL-jD-wuO" id="cZd-rk-Nhq"/>
+                                            <outlet property="storeTodayHoursLabel" destination="S5D-QL-GET" id="cEd-LV-h6Q"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gxf-Mo-9wk">
-                                <rect key="frame" x="0.0" y="64" width="82" height="68"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="68" id="frP-3o-I5X"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Store Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yxL-jD-wuO">
-                                <rect key="frame" x="90" y="72" width="269" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="269" id="8gR-US-Cr2"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="25"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5D-QL-GET">
-                                <rect key="frame" x="90" y="101" width="245" height="21"/>
-                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="12"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="10R-ID-HCE">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <subviews>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ywy-IJ-fhF">
-                                        <rect key="frame" x="177" y="291" width="20" height="20"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </activityIndicatorView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="F1T-2Y-ZsP" firstAttribute="top" secondItem="OeG-3W-OZh" secondAttribute="bottom" constant="8" symbolic="YES" id="10t-C2-8QG"/>
-                            <constraint firstItem="gxf-Mo-9wk" firstAttribute="leading" secondItem="NxS-Kw-5Wr" secondAttribute="leading" id="4IW-hU-WTS"/>
-                            <constraint firstItem="gxF-Yl-stv" firstAttribute="leading" secondItem="NxS-Kw-5Wr" secondAttribute="leading" id="6It-SX-jVG"/>
-                            <constraint firstItem="twU-So-ISX" firstAttribute="leading" secondItem="NxS-Kw-5Wr" secondAttribute="leading" id="71R-4U-Rmp"/>
-                            <constraint firstItem="yxL-jD-wuO" firstAttribute="top" secondItem="TGj-Ay-ilo" secondAttribute="bottom" constant="8" symbolic="YES" id="856-i7-nuM"/>
-                            <constraint firstItem="gxF-Yl-stv" firstAttribute="trailing" secondItem="NxS-Kw-5Wr" secondAttribute="trailing" id="A8G-KL-Hw4"/>
-                            <constraint firstItem="10R-ID-HCE" firstAttribute="leading" secondItem="twU-So-ISX" secondAttribute="leading" id="AdF-fh-U1o"/>
-                            <constraint firstItem="yxL-jD-wuO" firstAttribute="leading" secondItem="gxf-Mo-9wk" secondAttribute="trailing" constant="8" symbolic="YES" id="CSC-HT-V9R"/>
-                            <constraint firstItem="OeG-3W-OZh" firstAttribute="leading" secondItem="Eoj-pf-Mhd" secondAttribute="leadingMargin" constant="8" id="Dk6-DP-U3H"/>
-                            <constraint firstItem="OeG-3W-OZh" firstAttribute="leading" secondItem="QYN-OU-N13" secondAttribute="trailing" constant="8" symbolic="YES" id="E2y-UO-lne"/>
-                            <constraint firstItem="gxf-Mo-9wk" firstAttribute="top" secondItem="10R-ID-HCE" secondAttribute="top" id="EMa-ZB-TOW"/>
-                            <constraint firstItem="NxS-Kw-5Wr" firstAttribute="top" secondItem="Eoj-pf-Mhd" secondAttribute="top" constant="311" id="ITP-jp-fyb"/>
-                            <constraint firstItem="F1T-2Y-ZsP" firstAttribute="leading" secondItem="Eoj-pf-Mhd" secondAttribute="leadingMargin" constant="97" id="Lzd-fg-bBf"/>
-                            <constraint firstItem="gxF-Yl-stv" firstAttribute="bottom" secondItem="NxS-Kw-5Wr" secondAttribute="bottom" id="M30-si-iua"/>
-                            <constraint firstItem="gxf-Mo-9wk" firstAttribute="top" secondItem="TGj-Ay-ilo" secondAttribute="bottom" id="OfG-mE-CAq"/>
-                            <constraint firstItem="gxF-Yl-stv" firstAttribute="leading" secondItem="Eoj-pf-Mhd" secondAttribute="leading" id="Pxi-UT-SYH"/>
-                            <constraint firstItem="yxL-jD-wuO" firstAttribute="trailing" secondItem="Eoj-pf-Mhd" secondAttribute="trailingMargin" id="YmK-kt-U14"/>
-                            <constraint firstItem="twU-So-ISX" firstAttribute="trailing" secondItem="NxS-Kw-5Wr" secondAttribute="trailing" id="Yrp-EX-P6O"/>
-                            <constraint firstItem="gxF-Yl-stv" firstAttribute="top" secondItem="yxL-jD-wuO" secondAttribute="bottom" constant="28" id="a0j-eo-y1f"/>
-                            <constraint firstItem="yxL-jD-wuO" firstAttribute="leading" secondItem="S5D-QL-GET" secondAttribute="leading" id="aV0-U8-saq"/>
-                            <constraint firstItem="S5D-QL-GET" firstAttribute="top" secondItem="TGj-Ay-ilo" secondAttribute="bottom" constant="37" id="bLa-RG-uNM"/>
-                            <constraint firstAttribute="trailing" secondItem="gxF-Yl-stv" secondAttribute="trailing" id="cKU-tb-ru8"/>
-                            <constraint firstItem="OeG-3W-OZh" firstAttribute="top" secondItem="NxS-Kw-5Wr" secondAttribute="bottom" constant="16" id="dye-OT-Qa8"/>
-                            <constraint firstItem="gxF-Yl-stv" firstAttribute="top" secondItem="S5D-QL-GET" secondAttribute="bottom" constant="8" symbolic="YES" id="hgI-zE-oBf"/>
-                            <constraint firstItem="twU-So-ISX" firstAttribute="top" secondItem="F1T-2Y-ZsP" secondAttribute="bottom" constant="10" id="lKa-Xw-Tma"/>
-                            <constraint firstItem="hXd-Lo-aBL" firstAttribute="top" secondItem="twU-So-ISX" secondAttribute="bottom" id="mO2-R6-hAs"/>
-                            <constraint firstItem="10R-ID-HCE" firstAttribute="bottom" secondItem="hXd-Lo-aBL" secondAttribute="top" id="neO-Kw-NfN"/>
-                            <constraint firstItem="OeG-3W-OZh" firstAttribute="top" secondItem="QYN-OU-N13" secondAttribute="top" id="r7f-QT-yaX"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="S5D-QL-GET" secondAttribute="trailing" constant="24" id="vKi-aT-OvR"/>
-                            <constraint firstItem="10R-ID-HCE" firstAttribute="trailing" secondItem="twU-So-ISX" secondAttribute="trailing" id="vcy-yv-GmN"/>
-                            <constraint firstItem="F1T-2Y-ZsP" firstAttribute="centerX" secondItem="NxS-Kw-5Wr" secondAttribute="centerX" id="xEw-Vd-Kyv"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="94f-HH-YM4">
                         <barButtonItem key="backBarButtonItem" title=" " id="3Wu-r4-4Ik"/>
@@ -217,24 +225,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="StoreTodaysHourLabel" destination="S5D-QL-GET" id="Usj-sr-h7R"/>
-                        <outlet property="activityIndicator" destination="ywy-IJ-fhF" id="2fN-Pf-oGH"/>
-                        <outlet property="activityIndicatorView" destination="10R-ID-HCE" id="0Aq-6I-qyH"/>
-                        <outlet property="differentStoreButton" destination="F1T-2Y-ZsP" id="ase-SE-qeC"/>
-                        <outlet property="goToMapView" destination="NxS-Kw-5Wr" id="kHv-JO-GG9"/>
-                        <outlet property="mainView" destination="Eoj-pf-Mhd" id="z0w-9y-V0W"/>
-                        <outlet property="mapView" destination="gxF-Yl-stv" id="u5Y-br-ocV"/>
-                        <outlet property="moneySavedLabel" destination="OeG-3W-OZh" id="Zg9-Um-OXO"/>
-                        <outlet property="storeAddressLabel" destination="88O-Ul-5Q0" id="nOG-c2-lGi"/>
+                        <outlet property="activityIndicator" destination="57V-zQ-HS9" id="2Ti-s2-ddi"/>
                         <outlet property="storeInfoTableView" destination="twU-So-ISX" id="uWf-Ma-zRd"/>
-                        <outlet property="storeLogoImageView" destination="gxf-Mo-9wk" id="hAK-lz-UrJ"/>
-                        <outlet property="storeNameLabel" destination="yxL-jD-wuO" id="djO-CH-KGe"/>
                         <segue destination="5JK-bF-js7" kind="presentation" identifier="goToScanner" id="KLp-ZH-FcI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DWO-fU-ZJG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3484" y="-260.41979010494754"/>
+            <point key="canvasLocation" x="3482.4000000000001" y="-261.31934032983509"/>
         </scene>
         <!--Shop-->
         <scene sceneID="02d-qk-erh">
